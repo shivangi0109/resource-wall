@@ -9,6 +9,16 @@ const morgan = require('morgan');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+const cookieSession = require('cookie-session');
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['my-secret-word'],
+
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
+
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
