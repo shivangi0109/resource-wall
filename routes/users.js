@@ -9,7 +9,8 @@ const express = require('express');
 const router  = express.Router();
 
 router.get('/', (req, res) => {
+  console.log("Hello from users");
   res.render('users');
-}); 
+});
 
 module.exports = router;
