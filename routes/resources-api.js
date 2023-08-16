@@ -23,9 +23,6 @@ router.get('/', (req, res) => {
 
 router.post("/", (req, res) => {
   const userId = req.session.user_id;
-  // if (!userId) {
-  //   return res.send({ error: "error" });
-  // }
 
   const newResource = req.body;
   newResource.user_id = userId;
@@ -38,20 +35,5 @@ router.post("/", (req, res) => {
       res.send(e);
     });
 });
-
-// router.post('/api/resources', (req, res) => {
-//   const { userId, title, description } = req.body;
-
-//   resourceQueries.addResource()
-//     .then(resource => {
-//       console.log('Resource saved successfully');
-//       res.json({ resource });
-//     })
-//     .catch(err => {
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
-// });
 
 module.exports = router;
