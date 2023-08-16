@@ -7,18 +7,25 @@
 
 const express = require('express');
 const router  = express.Router();
-
-// Resources Listing Page
-router.get('/', (req, res) => {
-  console.log("Hello from resources");
-  res.render('resources');
-});
+const resourceQueries = require('../db/queries/resources');
 
 // Create a new Resource
 router.get('/new', (req, res) => {
 
   console.log('New Resource to create');
   res.render('resource-new');
+});
+
+router.get('/', (req, res) => {
+  resourceQueries.getResources()
+    .then(resources => {
+      res.render('resources', { resources });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 // Show one specific resource

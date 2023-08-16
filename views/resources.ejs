@@ -23,8 +23,13 @@
 
 
   <h1>Resources</h1>
-  <button id="fetch-resources">Fetch Resources via AJAX</button>
-  <ul id="resources"></ul>
+
+  <ul>
+    <% resources.forEach(resource => { %>
+      <li><%= resource.title %></li>
+    <% }); %>
+  </ul>
+
 </body>
 
 </html>

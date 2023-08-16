@@ -59,7 +59,7 @@ app.use('/resources', resourcesRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('resources');
 });
 
 app.listen(PORT, () => {

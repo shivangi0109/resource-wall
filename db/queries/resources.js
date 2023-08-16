@@ -1,7 +1,8 @@
 const db = require('../connection');
 
 const getResources = () => {
-  return db.query('SELECT * FROM resources;')
+  const resources = db.query('SELECT * FROM resources;');
+  return resources
     .then(data => {
       return data.rows;
     });
