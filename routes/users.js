@@ -20,9 +20,18 @@ router.get('/login/:id', (req, res) => {
   res.redirect('/');
 });
 
+// Users Listing Page
 router.get('/', (req, res) => {
   console.log("Hello from users");
   res.render('users');
+});
+
+// View Edit page specific user
+router.get('/:id/edit', (req, res) => {
+  const userId = req.params.id;
+
+  console.log(`Specific user for specific ${userId}`);
+  res.send(`Specific user for specific ${userId}`);
 });
 
 module.exports = router;
