@@ -14,17 +14,22 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/resources.js"></script>
+  <!-- <script defer src="/scripts/resources.js"></script> -->
 </head>
 
 <body>
   <%- include('partials/_header.ejs') %>
+  <h1>Create a new resource</h1>
+  <form id="resourceForm" action="/api/resources" method="POST">
+    <label for="resource_url">URL:</label>
+    <input type="text" id="resource_url" name="resource_url"><br>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title"><br>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description"><br>
+    <button type="submit">Save</button>
+  </form>
   <!-- <%- include('partials/_footer.ejs') %> -->
-
-
-  <h1>Resources</h1>
-  <button id="fetch-resources">Fetch Resources via AJAX</button>
-  <ul id="resources"></ul>
 </body>
 
 </html>

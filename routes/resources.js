@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.get('/new', (req, res) => {
 
   console.log('New Resource to create');
-  res.send('New Resource to create');
+  res.render('resource-new');
 });
 
 // Show one specific resource
