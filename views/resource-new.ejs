@@ -14,17 +14,16 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <!-- <script defer src="/scripts/resources.js"></script> -->
 </head>
 
 <body>
   <%- include('partials/_header.ejs') %>
     <h1>Create a new resource</h1>
     <form id="resourceForm" action="/api/resources" method="POST">
-      <!-- <label for="category_id">Choose a category:</label>
+    <label for="category_id">Choose a category:</label>
     <select id="category_id" name="category_id">
       <option value="" selected disabled>Choose a Category</option>
-      <option value="ART">Art</option>
+      <option value="1">Art</option>
       <option value="2">Cooking</option>
       <option value="3">Design</option>
       <option value="4">Finance</option>
@@ -35,15 +34,15 @@
       <option value="9">Music</option>
       <option value="10">Technology</option>
       <option value="11">Other</option>
-    </select> -->
+    </select>
       <label for="title">Title:</label>
-      <input type="text" id="title" name="title"><br>
+      <input type="text" id="title" name="title" required><br>
       <label for="description">Description:</label>
-      <input type="text" id="description" name="description"><br>
+      <input type="text" id="description" name="description" required><br>
       <label for="resource_url">URL:</label>
-      <input type="text" id="resource_url" name="resource_url"><br>
+      <input type="text" id="resource_url" name="resource_url" required><br>
       <label for="thumbnail_url">Thumbnail Image URL:</label>
-      <input type="text" id="thumbnail_url" name="thumbnail_url"><br>
+      <input type="text" id="thumbnail_url" name="thumbnail_url" required><br>
       <button type="submit">Save</button>
     </form>
     <!-- <%- include('partials/_footer.ejs') %> -->
