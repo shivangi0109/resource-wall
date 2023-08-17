@@ -20,10 +20,11 @@
       <a href="">MY PROFILE</a>
     </section>
     <section class="nav-right">
-      <form class="search-form" method="POST" action="">
+      <form class="search-form" method="GET" action="/api/resources/search">
         <div class="icon-container">
           <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input type="search" placeholder="Search">
+          <input type="text" placeholder="Search" name="q">
+          <button type="submit">Search</button>
         </div>
       </form>
     </section>
