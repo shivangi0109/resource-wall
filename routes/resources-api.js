@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// users should be able to create a new resource
 router.post("/", (req, res) => {
   const userId = req.session.user_id;
 
@@ -30,32 +31,26 @@ router.post("/", (req, res) => {
     .then((resource) => {
       res.redirect('/resources');
     })
-    .catch((e) => {
-      console.error(e);
-      res.send(e);
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
     });
 });
 
-// For search
+// search for already-saved resources created by any user
 router.get('/search', (req, res) => {
   const searchText = req.query.q;
-  console.log(searchText, "HERE in resources-api");
   resourceQueries.searchResource(searchText)
     .then(searchResults => {
       console.log("Search results in resources-api", searchResults);
       res.json(searchResults);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
     });
 });
 
 module.exports = router;
-
-
-// const getUserWithEmail = (email) => {
-//   return query(`SELECT * FROM users WHERE email = $1`, [email])
-//     .then((result) => {
-//       if (!result.rows.length) {
-//         return null;
-//       }
-//       return result.rows[0];
-//     });
-// };

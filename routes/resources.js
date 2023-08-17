@@ -9,17 +9,15 @@ const express = require('express');
 const router  = express.Router();
 const resourceQueries = require('../db/queries/resources');
 
-// Create a new Resource
+// New Resource Page
 router.get('/new', (req, res) => {
 
   console.log('New Resource to create');
   res.render('resource-new');
 });
 
+// Resources Listings Page
 router.get('/', (req, res) => {
-  const searchText = req.query.q;
-  console.log("HERE in resources.js", searchText);
-  console.log("HERE in resources.js", req.query.q);
   resourceQueries.getResources()
     .then(resources => {
       res.render('resources', { resources });
