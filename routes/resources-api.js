@@ -36,4 +36,26 @@ router.post("/", (req, res) => {
     });
 });
 
+// For search
+router.get('/search', (req, res) => {
+  const searchText = req.query.q;
+  console.log(searchText, "HERE in resources-api");
+  resourceQueries.searchResource(searchText)
+    .then(searchResults => {
+      console.log("Search results in resources-api", searchResults);
+      res.json(searchResults);
+    });
+});
+
 module.exports = router;
+
+
+// const getUserWithEmail = (email) => {
+//   return query(`SELECT * FROM users WHERE email = $1`, [email])
+//     .then((result) => {
+//       if (!result.rows.length) {
+//         return null;
+//       }
+//       return result.rows[0];
+//     });
+// };
