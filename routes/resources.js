@@ -17,9 +17,6 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-  const searchText = req.query.q;
-  console.log("HERE in resources.js", searchText);
-  console.log("HERE in resources.js", req.query.q);
   resourceQueries.getResources()
     .then(resources => {
       res.render('resources', { resources });

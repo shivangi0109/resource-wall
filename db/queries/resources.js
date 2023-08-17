@@ -20,9 +20,6 @@ const addResource = (resource) => {
 };
 
 const searchResource = (searchText) => {
-  // const { title } = resource;
-  // Add RETURNING *; to the end of an INSERT query to return the objects that were inserted. This is handy when you need the auto generated id of an object you've just added to the database
-  console.log(("This is the searchText", searchText));
   return db.query(`
   SELECT *
   FROM resources
