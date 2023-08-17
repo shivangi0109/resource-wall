@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// users should be able to create a new resource
 router.post("/", (req, res) => {
   const userId = req.session.user_id;
 
@@ -30,19 +31,25 @@ router.post("/", (req, res) => {
     .then((resource) => {
       res.redirect('/resources');
     })
-    .catch((e) => {
-      console.error(e);
-      res.send(e);
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
     });
 });
 
-//  search for already-saved resources created by any user
+// search for already-saved resources created by any user
 router.get('/search', (req, res) => {
   const searchText = req.query.q;
   resourceQueries.searchResource(searchText)
     .then(searchResults => {
       console.log("Search results in resources-api", searchResults);
       res.json(searchResults);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
     });
 });
 

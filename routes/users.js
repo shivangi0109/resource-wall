@@ -8,7 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 
-// do this instead
+// Simulate user login path
 router.get('/login/:id', (req, res) => {
   // using encrypted cookies
   // req.session.user_id = req.params.id;
