@@ -21,4 +21,19 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post("/", (req, res) => {
+  const userId = req.session.user_id;
+
+  const newResource = req.body;
+  newResource.user_id = userId;
+  resourceQueries.addResource(newResource)
+    .then((resource) => {
+      res.redirect('/resources');
+    })
+    .catch((e) => {
+      console.error(e);
+      res.send(e);
+    });
+});
+
 module.exports = router;
