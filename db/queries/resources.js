@@ -8,6 +8,17 @@ const getResources = () => {
     });
 };
 
+const getResourceDetails = (resourceId) => {
+  const resource = db.query(`SELECT resources.*, comments.*
+  FROM resources
+  JOIN comments ON resources.id = resource_id
+  WHERE resources.id = $1;`, [resourceId]);
+  return resource
+    .then(data => {
+      return data.rows;
+    });
+};
+
 const addResource = (resource) => {
   const { user_id, title, description, category_id, resource_url, thumbnail_url } = resource;
   // Add RETURNING *; to the end of an INSERT query to return the objects that were inserted. This is handy when you need the auto generated id of an object you've just added to the database
@@ -31,4 +42,4 @@ const searchResource = (searchText) => {
 };
 
 
-module.exports = { getResources, addResource, searchResource };
+module.exports = { getResources, getResourceDetails, addResource, searchResource };

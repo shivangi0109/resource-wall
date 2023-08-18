@@ -33,8 +33,16 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const resourceId = req.params.id;
 
-  console.log(`Specific resource for specific ${resourceId}`);
-  res.send(`Specific resource for specific ${resourceId}`);
+  resourceQueries.getResourceDetails(resourceId)
+  .then(details => {
+    console.log("details", details);
+    res.render('resource-show', { details, resourceId });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
 });
 
 module.exports = router;
