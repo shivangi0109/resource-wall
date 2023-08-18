@@ -36,14 +36,10 @@ router.get('/:id', (req, res) => {
   // Gets Comments
   resourceQueries.getResourceComments(resourceId)
     .then(details => {
-      // TODO: clean up code
-      console.log("details", details);
 
       // Gets Ratings
       resourceQueries.getResourceRatings(resourceId)
         .then(ratings => {
-          // TODO: clean up code
-          console.log("ratings", ratings);
           res.render('resource-show', { details, resourceId, ratings });
         });
     })

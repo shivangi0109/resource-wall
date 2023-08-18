@@ -42,6 +42,10 @@
           <button type="submit">Add Rating</button>
         </form>
 
+        <form action="/api/likes?resourceId=<%= resourceId %>" method="POST">
+          <button type="submit">Like</button>
+        </form>
+
         <!-- Comments -->
         <ul>
           <% details.forEach(detail=> { %>
