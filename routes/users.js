@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
+const userQueries = require('../db/queries/users');
 
 // Simulate user login path
 router.get('/login/:id', (req, res) => {
@@ -24,6 +25,21 @@ router.get('/login/:id', (req, res) => {
 router.get('/', (req, res) => {
   console.log("Hello from users");
   res.render('users');
+});
+
+// Users Resources Page
+router.get('/:id', (req, res) => {
+  const userId = req.params.id;
+
+  userQueries.getUsersResources(userId)
+    .then(resources => {
+      res.render('my-resources', { resources });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 // View Edit page specific user
