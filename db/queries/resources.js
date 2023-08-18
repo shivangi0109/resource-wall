@@ -8,16 +8,28 @@ const getResources = () => {
     });
 };
 
-const getResourceDetails = (resourceId) => {
+const getResourceComments = (resourceId) => {
   const resource = db.query(`SELECT resources.*, comments.*
   FROM resources
-  JOIN comments ON resources.id = resource_id
+  LEFT JOIN comments ON resources.id = comments.resource_id
   WHERE resources.id = $1;`, [resourceId]);
   return resource
     .then(data => {
       return data.rows;
     });
 };
+
+const getResourceRatings = (resourceId) => {
+  const resource = db.query(`SELECT resources.*, ratings.*
+  FROM resources
+  LEFT JOIN ratings ON resources.id = ratings.resource_id
+  WHERE resources.id = $1;`, [resourceId]);
+  return resource
+    .then(data => {
+      return data.rows;
+    });
+};
+
 
 const addResource = (resource) => {
   const { user_id, title, description, category_id, resource_url, thumbnail_url } = resource;
@@ -42,4 +54,4 @@ const searchResource = (searchText) => {
 };
 
 
-module.exports = { getResources, getResourceDetails, addResource, searchResource };
+module.exports = { getResources, getResourceComments, getResourceRatings, addResource, searchResource };

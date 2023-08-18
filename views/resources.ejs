@@ -3,7 +3,6 @@
 
 <head>
   <title>Users</title>
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,18 +18,18 @@
 
 <body>
   <%- include('partials/_header.ejs') %>
-  <%- include('partials/_footer.ejs') %>
-  <main>
-      <h1>Resources</h1>
+    <%- include('partials/_footer.ejs') %>
+      <main>
+        <h1>Resources</h1>
+        <ul>
+          <% resources.forEach(resource=> { %>
+            <li>
+              <%= resource.title %>
+            </li>
+            <% }); %>
+        </ul>
 
-      <ul>
-        <% resources.forEach(resource => { %>
-          <li>
-            <%= resource.title %>
-          </li>
-          <% }); %>
-      </ul>
-  </main>
+      </main>
 </body>
 
 </html>

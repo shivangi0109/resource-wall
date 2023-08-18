@@ -19,23 +19,48 @@
 
 <body>
   <%- include('partials/_header.ejs') %>
-  <%- include('partials/_footer.ejs') %>
-  <main>
-      <h1>Resource Title</h1>
-      <p>Description</p>
-      <form id="commentForm" action="/api/comments?resourceId=<%= resourceId %>" method="POST">
-        <label for="comment">Comment:</label>
-        <input type="text" id="comment" name="comment" required>
-        <button type="submit">Add Comment</button>
-      </form>
-      <ul>
-        <% details.forEach(detail => { %>
-          <li>
-            <%= detail.comment %>
-          </li>
-        <% }); %>
-      </ul>
-  </main>
+    <%- include('partials/_footer.ejs') %>
+      <main>
+        <h1>Resource Title</h1>
+        <p>Description</p>
+
+        <!-- Comments Form -->
+        <form id="commentForm" action="/api/comments?resourceId=<%= resourceId %>" method="POST">
+          <label for="comment">Comment:</label>
+          <input type="text" id="comment" name="comment" required>
+          <button type="submit">Add Comment</button>
+        </form>
+
+        <!-- Rating Form -->
+        <form id="ratingForm" action="/api/ratings?resourceId=<%= resourceId %>" method="POST">
+          <label for="rating">Rating:</label>
+          <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+          <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+          <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+          <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+          <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+          <button type="submit">Add Rating</button>
+        </form>
+
+        <!-- Comments -->
+        <ul>
+          <% details.forEach(detail=> { %>
+            <li>
+              <%= detail.comment %>
+            </li>
+            <% }); %>
+        </ul>
+
+        <!-- Ratings (not yet averaged!) -->
+        <ul>
+          <% ratings.forEach(rating=> { %>
+            <li>
+              <%= rating.rating %>
+            </li>
+            <% }); %>
+        </ul>
+
+      </main>
 </body>
 
 </html>

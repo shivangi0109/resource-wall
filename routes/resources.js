@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const resourceQueries = require('../db/queries/resources');
 
 // New Resource Page
@@ -33,16 +33,25 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const resourceId = req.params.id;
 
-  resourceQueries.getResourceDetails(resourceId)
-  .then(details => {
-    console.log("details", details);
-    res.render('resource-show', { details, resourceId });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+  // Gets Comments
+  resourceQueries.getResourceComments(resourceId)
+    .then(details => {
+      // TODO: clean up code
+      console.log("details", details);
+
+      // Gets Ratings
+      resourceQueries.getResourceRatings(resourceId)
+        .then(ratings => {
+          // TODO: clean up code
+          console.log("ratings", ratings);
+          res.render('resource-show', { details, resourceId, ratings });
+        });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 module.exports = router;
