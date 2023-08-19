@@ -24,7 +24,11 @@
         <ul>
           <% resources.forEach(resource=> { %>
             <li>
-              <%= resource.title %>
+              <a href="/resources/<%= resource.id %>"><%= resource.title %></a>
+              <br>
+              <br><img src="<%= resource.thumbnail_url %>" alt="thumbnail image" width="100"/>
+              <br>
+              <br>
             </li>
             <% }); %>
         </ul>
