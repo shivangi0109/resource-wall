@@ -28,4 +28,13 @@ const getUsersLikedResources = (id) => {
     });
 };
 
-module.exports = { getUsers, getUserById, getUsersResources, getUsersLikedResources };
+const editUserProfile = (profileDetails) => {
+  const { user_id, email, username, profile_image_url, first_name, last_name, bio } = profileDetails;
+
+  return db.query(`UPDATE users SET email = $1, username = $2, profile_image_url = $3, first_name = $4, last_name = $5, bio = $6 WHERE id = $7;`, [email, username, profile_image_url, first_name, last_name, bio, user_id])
+    .then(data => {
+      return data.rows[0];
+    });
+};
+
+module.exports = { getUsers, getUserById, getUsersResources, getUsersLikedResources, editUserProfile };

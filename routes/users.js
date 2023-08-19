@@ -27,8 +27,24 @@ router.get('/', (req, res) => {
   res.render('users');
 });
 
-// Users Resources Page
+// Users Show Page
 router.get('/:id', (req, res) => {
+  const userId = req.params.id;
+
+  userQueries.getUserById(userId)
+    .then(user => {
+      console.log(user);
+      res.render('users-show', { user });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+// Users Resources Page
+router.get('/:id/my-resources', (req, res) => {
   const userId = req.params.id;
 
   userQueries.getUsersResources(userId)
@@ -50,7 +66,7 @@ router.get('/:id/edit', (req, res) => {
   const userId = req.params.id;
 
   console.log(`Specific user for specific ${userId}`);
-  res.send(`Specific user for specific ${userId}`);
+  res.render('users-edit');
 });
 
 module.exports = router;
