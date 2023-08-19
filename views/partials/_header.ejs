@@ -14,10 +14,10 @@
 <body>
   <nav>
     <section class="nav-left">
-      <a href="">HOME</a>
-      <a href="">NEW URL</a>
-      <a href="">MY RESOURCES</a>
-      <a href="">MY PROFILE</a>
+      <a href="/resources">HOME</a>
+      <a href="/resources/new">ADD NEW RESOURCE</a>
+      <a href="/users/<%= userId %>/my-resources">MY RESOURCES</a>
+      <a href="/users/<%= userId %>">MY PROFILE</a>
     </section>
     <section class="nav-right">
       <form class="search-form" method="GET" action="/api/resources/search">
