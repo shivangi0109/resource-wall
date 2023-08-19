@@ -33,7 +33,10 @@ router.get('/:id', (req, res) => {
 
   userQueries.getUsersResources(userId)
     .then(resources => {
-      res.render('my-resources', { resources });
+      userQueries.getUsersLikedResources(userId)
+        .then(likedResources => {
+          res.render('my-resources', { resources, likedResources });
+        });
     })
     .catch(err => {
       res

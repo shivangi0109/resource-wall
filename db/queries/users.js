@@ -21,4 +21,11 @@ const getUsersResources = (id) => {
     });
 };
 
-module.exports = { getUsers, getUserById, getUsersResources };
+const getUsersLikedResources = (id) => {
+  return db.query(`SELECT resources.* FROM resources JOIN likes ON resources.id = likes.resource_id WHERE likes.user_id = $1;`, [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
+module.exports = { getUsers, getUserById, getUsersResources, getUsersLikedResources };

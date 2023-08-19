@@ -20,7 +20,7 @@
   <%- include('partials/_header.ejs') %>
     <%- include('partials/_footer.ejs') %>
       <main>
-        <h1>My Resources</h1>
+        <h1>All My Resources</h1>
         <ul>
           <% resources.forEach(resource=> { %>
             <li>
@@ -31,6 +31,20 @@
             </p>
             <% }); %>
         </ul>
+
+        <h1>My Liked Resources</h1>
+
+        <ul>
+          <% likedResources.forEach(likedResource=> { %>
+            <li>
+              <%= likedResource.title %>
+            </li>
+            <p>
+              <%= likedResource.description %>
+            </p>
+            <% }); %>
+        </ul>
+
       </main>
 </body>
 
