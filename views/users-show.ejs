@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Users</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <!-- <script defer src="/scripts/resources.js"></script> -->
+</head>
+
+<body>
+  <%- include('partials/_header.ejs') %>
+    <%- include('partials/_footer.ejs') %>
+      <main>
+        <h1>My Profile</h1>
+        <h3>Email: <%= user[0].email %></h3>
+        <h3>Username: <%= user[0].username %></h3>
+        <h3><img src="<%= user[0].profile_image_url %>" alt="profile image"/></h3></img>
+        <h3>First Name: <%= user[0].first_name %></h3>
+        <h3>Last Name: <%= user[0].last_name %></h3>
+        <p>About me: <%= user[0].bio %></p>
+      </main>
+</body>
+
+</html>

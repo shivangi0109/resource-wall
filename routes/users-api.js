@@ -21,4 +21,24 @@ router.get('/', (req, res) => {
     });
 });
 
+// users should be able to edit their profile
+router.post("/", (req, res) => {
+  const userId = req.session.user_id;
+
+  console.log('User ID --------------------->', userId);
+
+  const updatedProfile = req.body;
+  updatedProfile.user_id = userId;
+  console.log('Updated---------------->', updatedProfile);
+  userQueries.editUserProfile(updatedProfile)
+    .then(() => {
+      res.redirect(`/users/${userId}`);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 module.exports = router;
