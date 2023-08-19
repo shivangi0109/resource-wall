@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
   userQueries.getUserById(userId)
     .then(user => {
       console.log(user);
-      res.render('users-show', { user });
+      res.render('users-show', { user, userId: req.session.user_id });
     })
     .catch(err => {
       res
@@ -51,7 +51,7 @@ router.get('/:id/my-resources', (req, res) => {
     .then(resources => {
       userQueries.getUsersLikedResources(userId)
         .then(likedResources => {
-          res.render('my-resources', { resources, likedResources });
+          res.render('my-resources', { resources, likedResources, userId: req.session.user_id });
         });
     })
     .catch(err => {
@@ -66,7 +66,7 @@ router.get('/:id/edit', (req, res) => {
   const userId = req.params.id;
 
   console.log(`Specific user for specific ${userId}`);
-  res.render('users-edit');
+  res.render('users-edit', { userId: req.session.user_id });
 });
 
 module.exports = router;

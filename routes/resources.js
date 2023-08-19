@@ -13,14 +13,14 @@ const resourceQueries = require('../db/queries/resources');
 router.get('/new', (req, res) => {
 
   console.log('New Resource to create');
-  res.render('resource-new');
+  res.render('resource-new', { userId: req.session.user_id });
 });
 
 // Resources Listings Page
 router.get('/', (req, res) => {
   resourceQueries.getResources()
     .then(resources => {
-      res.render('resources', { resources });
+      res.render('resources', { resources, userId: req.session.user_id });
     })
     .catch(err => {
       res
@@ -40,7 +40,7 @@ router.get('/:id', (req, res) => {
       // Gets Ratings
       resourceQueries.getResourceRatings(resourceId)
         .then(ratings => {
-          res.render('resource-show', { details, resourceId, ratings });
+          res.render('resource-show', { details, resourceId, ratings, userId: req.session.user_id });
         });
     })
     .catch(err => {
