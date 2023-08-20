@@ -46,7 +46,7 @@ const searchResource = (searchText) => {
   return db.query(`
   SELECT *
   FROM resources
-  WHERE title ILIKE $1;`, [`%${searchText}%`])
+  WHERE title ILIKE $1 OR description ILIKE $1;`, [`%${searchText}%`])
     .then((result) => {
       console.log(("This is the search", result));
       return result.rows;

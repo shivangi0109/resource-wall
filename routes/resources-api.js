@@ -43,8 +43,7 @@ router.get('/search', (req, res) => {
   const searchText = req.query.q;
   resourceQueries.searchResource(searchText)
     .then(searchResults => {
-      console.log("Search results in resources-api", searchResults);
-      res.json(searchResults);
+      res.render('resources-search', { searchResults, userId: req.session.user_id });
     })
     .catch(err => {
       res
