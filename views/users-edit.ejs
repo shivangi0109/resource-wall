@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/form.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/resources.js"></script>
@@ -21,21 +22,25 @@
     <%- include('partials/_footer.ejs') %>
       <main>
         <h1>Edit Profile</h1>
-        <form id="resourceForm" action="/api/users" method="POST">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required><br>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required><br>
-          <label for="profile_image_url">Profile Image URL:</label>
-          <input type="text" id="profile_image_url" name="profile_image_url" required><br>
-          <label for="first_name">First Name:</label>
-          <input type="text" id="first_name" name="first_name" required><br>
-          <label for="last_name">Last Name:</label>
-          <input type="text" id="last_name" name="last_name" required><br>
-          <label for="bio">Bio:</label>
-          <input type="text" id="bio" name="bio"><br>
-          <button type="submit">Save</button>
-        </form>
+
+
+        <div class="form-container">
+          <form id="userEditForm" action="/api/users" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Name" required><br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Your Username" required><br>
+            <label for="profile_image_url">Profile Image URL:</label>
+            <input type="text" id="profile_image_url" name="profile_image_url" placeholder="Your Profile Image Url" required><br>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" placeholder="Your First Name" required><br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Your Last Name" required><br>
+            <label for="bio">Bio:</label>
+            <input type="text" id="bio" name="bio" placeholder="Your Biography" ><br>
+            <button type="submit">Save</button>
+          </form>
+        </div>
       </main>
 </body>
 
