@@ -82,7 +82,7 @@ Users can view details about a single resource, the average user rating, and any
 * [EJS](https://ejs.co/)
 * [PostgreSQL](https://www.postgresql.org/) version 6.x
 <!-- * [jQuery](https://jquery.com/) -->
-<!-- * [SASS](https://www.npmjs.com/package/sass/) - comment back IN if we use. We are also allowed to use: Stylus, or PostCSS for styling -- or CSS Custom properties and no CSS preprocessor -->
+* [SASS](https://www.npmjs.com/package/sass/)
 
 ## Installation
 
