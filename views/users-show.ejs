@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/user-profile.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <!-- <script defer src="/scripts/resources.js"></script> -->
@@ -19,15 +20,38 @@
 <body>
   <%- include('partials/_header.ejs') %>
     <%- include('partials/_footer.ejs') %>
-      <main>
-        <h1>My Profile</h1>
-        <h3>Email: <%= user[0].email %></h3>
-        <h3>Username: <%= user[0].username %></h3>
-        <h3><img src="<%= user[0].profile_image_url %>" alt="profile image"/></h3></img>
-        <h3>First Name: <%= user[0].first_name %></h3>
-        <h3>Last Name: <%= user[0].last_name %></h3>
-        <p>About me: <%= user[0].bio %></p>
-        <a href="/users/<%= userId %>/edit"><button>Edit Profile</button></a>
+      <main class="container">
+        <section class="user-profile-main">
+          <h1 class="title-header">My Profile</h1>
+          <section class="profile-details">
+            <div class="profile-photo"><img src="<%= user[0].profile_image_url %>" alt="profile image" /></div>
+            <div class="profile-info">
+              <h4 class="profile-header">Username:</h4>
+              <p class="profile-field">
+                <%= user[0].username %>
+              </p>
+              <h4 class="profile-header">Email:</h3>
+                <p class="profile-field">
+                  <%= user[0].email %>
+                </p>
+                <h4 class="profile-header">First Name:</h3>
+                  <p class="profile-field">
+                    <%= user[0].first_name %>
+                  </p>
+                  <h4 class="profile-header">Last Name:</h3>
+                    <p class="profile-field">
+                      <%= user[0].last_name %>
+                    </p>
+                    <h4 class="profile-header">About Me:</h3>
+                      <p class="profile-field">
+                        <%= user[0].bio %>
+                      </p>
+            </div>
+          </section>
+          <div class="button-area">
+            <a href="/users/<%= userId %>/edit"><button class="edit-profile-button">Edit Profile</button></a>
+          </div>
+        </section>
       </main>
 </body>
 
