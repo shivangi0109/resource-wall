@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/resources.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/resources.js"></script>
@@ -20,18 +21,21 @@
   <%- include('partials/_header.ejs') %>
     <%- include('partials/_footer.ejs') %>
       <main>
-        <h1>Resources Search Page</h1>
-        <ul>
-          <% searchResults.forEach(resource=> { %>
-            <li>
-              <a href="/resources/<%= resource.id %>"><%= resource.title %></a>
-              <br>
-              <br><img src="<%= resource.thumbnail_url %>" alt="thumbnail image" width="100"/>
-              <br>
-              <br>
-            </li>
-            <% }); %>
-        </ul>
+        <h1 class="title-header">Resources Search Page</h1>
+        <section class="resources-main">
+            <% searchResults.forEach(resource=> { %>
+                <a href="/resources/<%= resource.id %>">
+                  <div class="resource-card">
+                    <div class="card-content">
+                      <div class="resource-card-title">
+                        <%= resource.title %>
+                      </div>
+                      <img src="<%= resource.thumbnail_url %>" alt="thumbnail image" class="thumbnail_img"/>
+                    </div>
+                  </div>
+                </a>
+                <% }); %>
+        </section>
       </main>
 </body>
 
