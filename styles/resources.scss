@@ -1,0 +1,58 @@
+@use 'variables' as v;
+
+.resources-header {
+  margin: 150px 0px 0px 0px;
+  color: v.$font-dark;
+  text-transform: uppercase;
+  line-height: 0px;
+}
+
+.resources-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 0px 100px 0px;
+  z-index: 0;
+  width: 100%;
+}
+
+.resource-card {
+  position: relative;
+  width: 200px;
+  margin: 10px;
+  padding: 10px 10px 30px 10px;
+  background-color: v.$white;
+  transition: 0.5s;
+}
+
+.resource-card:hover {
+  cursor: pointer;
+  box-shadow: v.$box-shadow;
+  scale: 1.01;
+}
+
+.card-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnail_img {
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+
+.resource-card-title {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  background-color: v.$white-opacity;
+  color: v.$font-dark;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 10px;
+  z-index: 1;
+  width: 80%;
+}
