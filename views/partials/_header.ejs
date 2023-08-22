@@ -14,18 +14,23 @@
 <body>
   <nav>
     <section class="nav-left">
-      <a href="/resources">HOME</a>
-      <a href="/resources/new">ADD NEW RESOURCE</a>
-      <a href="/users/<%= userId %>/my-resources">MY RESOURCES</a>
-      <a href="/users/<%= userId %>">MY PROFILE</a>
+      <a href="/resources" class="nav-link">Home</a>
+      <a href="/resources/new" class="nav-link">Add New Resource</a>
+      <a href="/users/<%= userId %>/my-resources" class="nav-link">My Resources</a>
+      <a href="/users/<%= userId %>" class="nav-link">My Profile</a>
     </section>
     <section class="nav-right">
       <form class="search-form" method="GET" action="/api/resources/search">
-        <div class="icon-container">
-          <input type="text" placeholder="🔍 Search" name="q">
-          <button type="submit">Search</button>
-        </div>
+        <input type="text" placeholder="🔍 Search" name="q">
+        <button type="submit" id="nav-button">
+          <!-- magnifying glass svg -->
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22.7744 22.7742L30 30M26.3871 14.1935C26.3871 20.9279 20.9279 26.3871 14.1935 26.3871C7.45924 26.3871 2 20.9279 2 14.1935C2 7.45924 7.45924 2 14.1935 2C20.9279 2 26.3871 7.45924 26.3871 14.1935Z"
+              stroke="white" stroke-width="3.48387" stroke-linecap="round" />
+          </svg></button>
       </form>
+
     </section>
   </nav>
 </body>

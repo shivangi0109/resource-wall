@@ -1,9 +1,9 @@
 @use 'variables' as v;
 
 footer {
-  background-color: #99A8D7;
+  background-color: rgba(35, 48, 89, 0.90);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: fixed;
   width: 100%;
@@ -11,4 +11,18 @@ footer {
   padding: 25px;
   bottom: 0;
   z-index: 1;
+  gap: 30px;
+}
+
+footer > div {
+  color: v.$white;
+}
+
+footer > div > a {
+  color: v.$link-hover;
+  transition: 0.3s;
+}
+
+footer > div > a:hover {
+  color: v.$white;
 }
