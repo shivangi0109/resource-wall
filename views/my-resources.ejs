@@ -15,14 +15,13 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/resources.js"></script>
-  <script defer src="/scripts/app.js"></script>
+  <script src="/scripts/app.js"></script>
 </head>
 
 <body>
   <%- include('partials/_header.ejs') %>
     <%- include('partials/_footer.ejs') %>
       <main>
-        <!-- <h1 class="title-header">My Resources</h1> -->
         <div class="buttons-container">
           <button class="button my-resources-toggle button-left button-active">My Resources</button>
           <button class="button my-resources-toggle button-right">My Favourites</button>
@@ -44,7 +43,6 @@
               <% }); %>
           </section>
 
-          <!-- <h1 class="title-header">My Liked Resources</h1> -->
           <section id="my-favourites" class="hidden">
             <% likedResources.forEach(likedResource=> { %>
               <a href="/resources/<%= likedResource.id %>">
