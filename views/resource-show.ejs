@@ -27,23 +27,16 @@
         <img src="<%= resource[0].thumbnail_url %>" alt="Resource Image">
         <h1><%= resource[0].title %></h1>
         <p><%= resource[0].description %></p>
-        <p> Visit to this article
-          <a target="_blank" href="<%= resource[0].resource_url %>"><%= resource[0].resource_url %></a>
-        </p>
-        <p id="formattedDate"><%= resource[0].created_on %></p>
-
-        <div class="rating">
-          <form id="ratingForm" action="/api/ratings?resourceId=<%= resourceId %>" method="POST">
-            <label for="rating">Rating:</label>
-            <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-            <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-            <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-            <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-            <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-            <button type="submit">Add Rating</button>
-          </form>
+        <div class="button-date">
+          <button class="visit-button">
+            <a target="_blank" href="<%= resource[0].resource_url %>">Click here to visit this article</a>
+          </button>
+          <p id="formattedDate"><%= resource[0].created_on %></p>
         </div>
-
+        <div class="rating-category">
+          <p>Average Ratings: </p>
+          <p>Category: </p>
+        </div>
       </div>
       <div class="right-section">
         <form id="commentForm" action="/api/comments?resourceId=<%= resourceId %>" method="POST">
@@ -52,7 +45,7 @@
           <button type="submit">Add Comment</button>
         </form>
 
-        <div class="rating">
+        <div class="rating-like-form">
           <form id="ratingForm" action="/api/ratings?resourceId=<%= resourceId %>" method="POST">
             <label for="rating">Rating:</label>
             <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
@@ -70,6 +63,7 @@
           </form>
         </div>
 
+        <p id="ratings">Your rating is <strong><%= ratings[ratings.length - 1].rating %></strong> for <strong><%= resource[0].title %></strong></p>
         <ul class="comments-container">
           <div class="comments">
             <img src="<%= resource[0].thumbnail_url %>" alt="User Image">
@@ -81,13 +75,13 @@
           </div>
         </ul>
 
-        <ul class="ratings">
+        <!-- <ul class="ratings">
           <% ratings.forEach(rating=> { %>
             <li>
               <%= rating.rating %>
             </li>
           <% }); %>
-        </ul>
+        </ul> -->
       </div>
     </main>
 </body>

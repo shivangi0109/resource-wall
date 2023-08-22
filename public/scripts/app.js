@@ -7,7 +7,7 @@ $(document).ready(function() {
   var formattedDate = moment(createdOn).startOf('hour').fromNow();
 
   // Update the content of the paragraph with the formatted date
-  $("#formattedDate").text("Created on: " + formattedDate);
+  $("#formattedDate").text("Created: " + formattedDate);
 
   // Add click event to the heart button
   $("#heartButton").on('click', function(event) {
