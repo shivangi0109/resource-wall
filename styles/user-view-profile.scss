@@ -60,7 +60,7 @@
 }
 
 .edit-profile-button {
-  background-color: v.$button-dark-blue;
+  background-color: v.$nav-font;
   border-radius: 25px;
   border: none;
   color: v.$white;
@@ -70,6 +70,6 @@
   transition: v.$body-background 0.3s;
 
   &:hover {
-    background-color: v.$nav-font;
+    background-color: v.$dark-blue;
   }
 }
