@@ -65,14 +65,14 @@
 
         <p id="ratings">Your rating is <strong><%= ratings[ratings.length - 1].rating %></strong> for <strong><%= resource[0].title %></strong></p>
         <ul class="comments-container">
-          <div class="comments">
-            <img src="<%= resource[0].thumbnail_url %>" alt="User Image">
+          <img src="<%= resource[0].thumbnail_url %>" style="width: 30px; height: 30px;" alt="User Image">
+          <!-- <div class="comments"> -->
             <% details.forEach(detail=> { %>
               <li>
                 <%= detail.comment %>
               </li>
             <% }); %>
-          </div>
+          <!-- </div> -->
         </ul>
 
         <!-- <ul class="ratings">
