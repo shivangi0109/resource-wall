@@ -8,6 +8,7 @@
 const express = require('express');
 const router = express.Router();
 const resourceQueries = require('../db/queries/resources');
+const userQueries = require('../db/queries/users');
 
 // New Resource Page
 router.get('/new', (req, res) => {
@@ -42,6 +43,7 @@ router.get('/', (req, res) => {
 // Show one specific resource
 router.get('/:id', (req, res) => {
   const resourceId = req.params.id;
+  const userId = req.session.user_id;
 
   // Get Specific Resource
   resourceQueries.getResourceById(resourceId)
@@ -62,7 +64,13 @@ router.get('/:id', (req, res) => {
                   // Gets Ratings
                   resourceQueries.getResourceRatings(resourceId)
                     .then(ratings => {
-                      res.render('resource-show', { resource, category, avgRating, details, resourceId, ratings, userId: req.session.user_id });
+
+                      // Get User
+                      userQueries.getUserById(userId)
+                        .then(user => {
+                          console.log(user);
+                        res.render('resource-show', { resource, category, avgRating, details, resourceId, ratings, user, userId: req.session.user_id });
+                      });
                   });
               });
           });
