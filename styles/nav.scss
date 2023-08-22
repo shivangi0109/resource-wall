@@ -1,7 +1,7 @@
 @use 'variables' as v;
 
 nav {
-  background-color: #99A8D7;
+  background-color: v.$white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,6 +10,7 @@ nav {
   height: 100px;
   padding: 50px;
   z-index: 1;
+  box-shadow: 0px 5px 25px 0px rgba(85, 121, 235, 0.25);
 }
 
 .nav-left {
@@ -27,9 +28,17 @@ nav {
   justify-content: flex-end;
 }
 
-nav > section > a {
-  color: #ffffff;
+.nav-link {
+  color: v.$nav-font;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: v.$dark-blue;
 }
 
 .search-form > input {
