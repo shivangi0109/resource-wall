@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/styles/resource-show.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script defer src="/scripts/app.js"></script>
 </head>
 
@@ -29,7 +30,7 @@
         <p> Visit to this article
           <a target="_blank" href="<%= resource[0].resource_url %>"><%= resource[0].resource_url %></a>
         </p>
-        <p><%= resource[0].created_on %></p>
+        <p id="formattedDate"><%= resource[0].created_on %></p>
       </div>
       <div class="right-section">
         <form id="commentForm" action="/api/comments?resourceId=<%= resourceId %>" method="POST">
