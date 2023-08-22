@@ -1,7 +1,7 @@
 @use 'variables' as v;
 
 nav {
-  background-color: #99A8D7;
+  background-color: v.$white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,6 +10,7 @@ nav {
   height: 100px;
   padding: 50px;
   z-index: 1;
+  box-shadow: 0px 5px 25px 0px rgba(85, 121, 235, 0.25);
 }
 
 .nav-left {
@@ -27,24 +28,54 @@ nav {
   justify-content: flex-end;
 }
 
-nav > section > a {
-  color: #ffffff;
+.nav-link {
+  color: v.$nav-font;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: v.$dark-blue;
+}
+
+.search-form {
+  display: flex;
+  height: 35px;
 }
 
 .search-form > input {
+  color: v.$dark-blue;
+  font-weight: 600;
+  background-color: v.$link-hover;
+  padding: 0px 15px;
   height: 30px;
+  border-style: none;
+  border-radius: 25px 0px 0px 25px;
+  height: 100%;
+  outline: none;
 }
 
-.icon-container input {
-  width: 100%;
-  padding-left: 20px;
-  height: 30px;
+.search-form > input:autofill, .search-form > input:-webkit-autofill {
+  background-color: v.$link-hover;
 }
 
-.search-icon {
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  color: rgb(124, 124, 124);
+#nav-button {
+  border-style: none;
+  border-radius: 0px 25px 25px 0px;
+  color: v.$white;
+  background-color: v.$nav-font;
+  padding: 0px 20px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-button:hover {
+  cursor: pointer;
+  background-color: v.$dark-blue;
+
 }
