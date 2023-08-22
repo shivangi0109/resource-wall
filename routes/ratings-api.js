@@ -14,11 +14,10 @@ router.post("/", (req, res) => {
   const userId = req.session.user_id;
   const resourceId = req.query.resourceId;
   const newRating = req.body;
-  console.log("newRating+++++++++++++++++++++", newRating);
+
   newRating.user_id = userId;
   newRating.resource_id = resourceId;
-  console.log("UserID is", userId);
-  console.log("resourceId is", resourceId);
+
   ratingQueries.addRating(newRating)
     .then(() => {
       res.redirect(`/resources/${resourceId}`);
