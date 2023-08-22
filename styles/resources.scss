@@ -4,7 +4,6 @@
   margin: 150px 0px 0px 0px;
   color: v.$dark-blue;
   text-transform: uppercase;
-  line-height: 0px;
 }
 
 .resources-main {
@@ -56,4 +55,50 @@
   padding: 5px 10px;
   z-index: 1;
   width: 80%;
+}
+
+#my-resources, #my-favourites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#my-favourites {
+  display: none;
+}
+
+// .hidden {
+//   display: none !important;
+// }
+
+.buttons-container {
+  margin: 150px 0px 0px 0px;
+  display: flex;
+}
+
+// copy to main.scss later?
+.my-resources-toggle {
+  font-weight: 600;
+  color: v.$dark-blue;
+  background-color: v.$white;
+  text-transform: uppercase;
+  width: 200px;
+  height: 45px;
+  border-radius: 25px;
+  border: none;
+  transition: 0.3s;
+}
+
+.my-resources-toggle:hover, .button-active {
+  cursor: pointer;
+  color: v.$white;
+  background-color: v.$dark-blue;
+}
+
+.button-left {
+  border-radius: 25px 0px 0px 25px;
+}
+
+.button-right {
+  border-radius:  0px 25px 25px 0px;
 }
