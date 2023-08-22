@@ -31,6 +31,19 @@
           <a target="_blank" href="<%= resource[0].resource_url %>"><%= resource[0].resource_url %></a>
         </p>
         <p id="formattedDate"><%= resource[0].created_on %></p>
+
+        <div class="rating">
+          <form id="ratingForm" action="/api/ratings?resourceId=<%= resourceId %>" method="POST">
+            <label for="rating">Rating:</label>
+            <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+            <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+            <button type="submit">Add Rating</button>
+          </form>
+        </div>
+
       </div>
       <div class="right-section">
         <form id="commentForm" action="/api/comments?resourceId=<%= resourceId %>" method="POST">
@@ -57,12 +70,15 @@
           </form>
         </div>
 
-        <ul class="comments">
-          <% details.forEach(detail=> { %>
-            <li>
-              <%= detail.comment %>
-            </li>
-          <% }); %>
+        <ul class="comments-container">
+          <div class="comments">
+            <img src="<%= resource[0].thumbnail_url %>" alt="User Image">
+            <% details.forEach(detail=> { %>
+              <li>
+                <%= detail.comment %>
+              </li>
+            <% }); %>
+          </div>
         </ul>
 
         <ul class="ratings">
