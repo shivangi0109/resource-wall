@@ -25,11 +25,9 @@ router.get('/', (req, res) => {
 router.post("/", (req, res) => {
   const userId = req.session.user_id;
 
-  console.log('User ID --------------------->', userId);
-
   const updatedProfile = req.body;
   updatedProfile.user_id = userId;
-  console.log('Updated---------------->', updatedProfile);
+
   userQueries.editUserProfile(updatedProfile)
     .then(() => {
       res.redirect(`/users/${userId}`);

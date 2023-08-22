@@ -23,7 +23,6 @@ router.get('/login/:id', (req, res) => {
 
 // Users Listing Page
 router.get('/', (req, res) => {
-  console.log("Hello from users");
   res.render('users');
 });
 
@@ -33,7 +32,6 @@ router.get('/:id', (req, res) => {
 
   userQueries.getUserById(userId)
     .then(user => {
-      console.log(user);
       res.render('users-show', { user, userId: req.session.user_id });
     })
     .catch(err => {
@@ -65,7 +63,6 @@ router.get('/:id/my-resources', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   const userId = req.params.id;
 
-  console.log(`Specific user for specific ${userId}`);
   res.render('users-edit', { userId: req.session.user_id });
 });
 

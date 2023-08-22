@@ -11,16 +11,26 @@ const resourceQueries = require('../db/queries/resources');
 
 // New Resource Page
 router.get('/new', (req, res) => {
-
-  console.log('New Resource to create');
   res.render('resource-new', { userId: req.session.user_id });
 });
 
 // Resources Listings Page
 router.get('/', (req, res) => {
+
+  // Get Resources
   resourceQueries.getResources()
     .then(resources => {
-      res.render('resources', { resources, userId: req.session.user_id });
+
+    // Get Categories
+    resourceQueries.getResourceCategories()
+      .then(categories => {
+
+        // Get Average Rating
+        resourceQueries.getResourceAverageRating()
+          .then(avgRatings => {
+          res.render('resources', { resources, categories, avgRatings, userId: req.session.user_id });
+        });
+      });
     })
     .catch(err => {
       res

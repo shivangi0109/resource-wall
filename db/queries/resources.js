@@ -8,6 +8,22 @@ const getResources = () => {
     });
 };
 
+const getResourceCategories = () => {
+  const resource = db.query(`SELECT categories.topic, resources.* FROM categories JOIN resources ON categories.id = resources.category_id;`);
+  return resource
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const getResourceAverageRating = () => {
+  const resource = db.query(`SELECT resources.*, FLOOR(AVG(ratings.rating)) as avg_rating FROM resources JOIN ratings ON resources.id = ratings.resource_id GROUP by resources.id;`);
+  return resource
+    .then(data => {
+      return data.rows;
+    });
+};
+
 const getResourceComments = (resourceId) => {
   const resource = db.query(`SELECT resources.*, comments.*
   FROM resources
@@ -29,7 +45,6 @@ const getResourceRatings = (resourceId) => {
       return data.rows;
     });
 };
-
 
 const addResource = (resource) => {
   const { user_id, title, description, category_id, resource_url, thumbnail_url } = resource;
@@ -54,4 +69,4 @@ const searchResource = (searchText) => {
 };
 
 
-module.exports = { getResources, getResourceComments, getResourceRatings, addResource, searchResource };
+module.exports = { getResources, getResourceCategories, getResourceAverageRating, getResourceComments, getResourceRatings, addResource, searchResource };
