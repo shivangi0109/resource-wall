@@ -12,59 +12,78 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/resource-show.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/resources.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script defer src="/scripts/app.js"></script>
 </head>
 
 <body>
   <%- include('partials/_header.ejs') %>
     <%- include('partials/_footer.ejs') %>
-      <main>
-        <h1>Resource Title</h1>
-        <p>Description</p>
-
-        <!-- Comments Form -->
+    <main class="resource-page">
+      <div class="left-section">
+        <img src="<%= resource[0].thumbnail_url %>" alt="Resource Image">
+        <h1><%= resource[0].title %></h1>
+        <p><%= resource[0].description %></p>
+        <div class="button-date">
+          <button class="visit-button">
+            <a target="_blank" href="<%= resource[0].resource_url %>">Click here to visit this article</a>
+          </button>
+          <p id="formattedDate"><%= resource[0].created_on %></p>
+        </div>
+        <div class="rating-category">
+          <p>Average Ratings: </p>
+          <p>Category: </p>
+        </div>
+      </div>
+      <div class="right-section">
         <form id="commentForm" action="/api/comments?resourceId=<%= resourceId %>" method="POST">
-          <label for="comment">Comment:</label>
-          <input type="text" id="comment" name="comment" required>
+          <label for="comment"></label>
+          <textarea id="comment" name="comment" placeholder="Enter your comments here..." required></textarea>
           <button type="submit">Add Comment</button>
         </form>
 
-        <!-- Rating Form -->
-        <form id="ratingForm" action="/api/ratings?resourceId=<%= resourceId %>" method="POST">
-          <label for="rating">Rating:</label>
-          <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-          <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-          <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-          <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-          <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-          <button type="submit">Add Rating</button>
-        </form>
+        <div class="rating-like-form">
+          <form id="ratingForm" action="/api/ratings?resourceId=<%= resourceId %>" method="POST">
+            <label for="rating">Rating:</label>
+            <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+            <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+            <button type="submit">Add Rating</button>
+          </form>
 
-        <form action="/api/likes?resourceId=<%= resourceId %>" method="POST">
-          <button type="submit">Like</button>
-        </form>
+          <form id="likeForm" action="/api/likes?resourceId=<%= resourceId %>" method="POST">
+            <button type="submit" class="heart-button" id="heartButton">
+              <i class="fas fa-heart"></i>
+            </button>
+          </form>
+        </div>
 
-        <!-- Comments -->
-        <ul>
-          <% details.forEach(detail=> { %>
-            <li>
-              <%= detail.comment %>
-            </li>
+        <p id="ratings">Your rating is <strong><%= ratings[ratings.length - 1].rating %></strong> for <strong><%= resource[0].title %></strong></p>
+        <ul class="comments-container">
+          <img src="<%= resource[0].thumbnail_url %>" style="width: 30px; height: 30px;" alt="User Image">
+          <!-- <div class="comments"> -->
+            <% details.forEach(detail=> { %>
+              <li>
+                <%= detail.comment %>
+              </li>
             <% }); %>
+          <!-- </div> -->
         </ul>
 
-        <!-- Ratings (not yet averaged!) -->
-        <ul>
+        <!-- <ul class="ratings">
           <% ratings.forEach(rating=> { %>
             <li>
               <%= rating.rating %>
             </li>
-            <% }); %>
-        </ul>
-
-      </main>
+          <% }); %>
+        </ul> -->
+      </div>
+    </main>
 </body>
 
 </html>

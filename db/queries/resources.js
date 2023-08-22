@@ -8,6 +8,13 @@ const getResources = () => {
     });
 };
 
+const getResourceById = (id) => {
+  return db.query('SELECT * FROM resources WHERE id = $1;', [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
 const getResourceCategories = () => {
   const resource = db.query(`SELECT categories.topic, resources.* FROM categories JOIN resources ON categories.id = resources.category_id;`);
   return resource
@@ -68,5 +75,4 @@ const searchResource = (searchText) => {
     });
 };
 
-
-module.exports = { getResources, getResourceCategories, getResourceAverageRating, getResourceComments, getResourceRatings, addResource, searchResource };
+module.exports = { getResources, getResourceById, getResourceCategories, getResourceAverageRating, getResourceComments, getResourceRatings, addResource, searchResource };

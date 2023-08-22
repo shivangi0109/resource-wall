@@ -1,7 +1,20 @@
 // Client facing scripts here
 
 $(document).ready(function() {
-  // toggles my resources
+  var createdOn = $("#formattedDate").text(); // Get the timestamp from the paragraph
+
+  // Use Moment.js to format the timestamp
+  var formattedDate = moment(createdOn).startOf('hour').fromNow();
+
+  // Update the content of the paragraph with the formatted date
+  $("#formattedDate").text("Created: " + formattedDate);
+
+  // Add click event to the heart button
+  $("#heartButton").on('click', function(event) {
+    event.preventDefault();
+    $(this).addClass("clicked"); // Toggle the "clicked" class
+  });
+   // toggles my resources
   $('.button-left').on('click', function() {
     $('#my-resources').slideDown();
     $('#my-favourites').slideUp();
@@ -24,3 +37,4 @@ $(document).ready(function() {
     $('.button-left').removeClass("button-active");
   });
 })
+});
