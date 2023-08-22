@@ -1,0 +1,195 @@
+@use 'variables' as v;
+
+.resource-page {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  margin-top: 200px;
+
+  .left-section {
+    flex: 1;
+    padding-right: 20px;
+    margin-left: 100px;
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-right: 10px;
+      margin-bottom: -15px;
+    }
+
+    .button-date {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-right:200px;
+
+      .visit-button {
+        display: inline-block;
+        background-color: v.$nav-font;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .visit-button a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .visit-button:hover {
+        cursor: pointer;
+        background-color: v.$dark-blue;
+
+      }
+    }
+
+    .rating-category {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-right:200px;
+    }
+  }
+
+  .right-section {
+    flex: 1;
+    padding-left: 20px;
+    margin-right: 100px;
+
+    #commentForm {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+
+      textarea {
+        border: none;
+        outline: none;
+        border-bottom: 3px solid dimgray;
+        background-color: inherit;
+        margin-bottom: 20px;
+      }
+
+      button {
+      display: inline-block;
+      background-color: v.$nav-font;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background-color: v.$dark-blue;
+      }
+    }
+
+    .rating-like-form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      #ratingForm {
+        button {
+          display: inline-block;
+          background-color: v.$nav-font;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          font-size: 16px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          cursor: pointer;
+          background-color: v.$dark-blue;
+        }
+      }
+
+      #likeForm {
+         display: flex;
+         justify-content: flex-end;
+
+        .heart-button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 24px;
+          color: gray; /* Initial color */
+          transition: color 0.3s; /* Add a smooth transition for color change */
+
+          &:hover {
+            color: red; /* Color on hover */
+          }
+
+          &.clicked {
+            color: red; /* Color when clicked */
+          }
+        }
+      }
+    }
+
+    #ratings {
+      margin-top: 30px;
+    }
+
+    ul.comments-container {
+      list-style: none;
+      padding: 0;
+      margin-top: 50px;
+
+      // .comments {
+      //   display: flex;
+      //   flex-direction: row;
+
+        // img {
+        //   width: 50px;
+        //   height: 50px;
+        //   border-radius: 50%;
+        //   margin-right: 10px;
+        // }
+
+        li {
+          border:1px solid black;
+          width: 100%;
+          height: 40px;
+          background-color: #ffffff;
+          border-radius: 5px;
+          padding: 10px;
+          margin-bottom: 10px;
+          margin-right: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      // }
+    }
+
+    ul.ratings {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

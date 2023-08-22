@@ -5,6 +5,12 @@
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+
+  @media (max-width: 600px) {
+    max-width: 90%; /* Adjust width for smaller screens */
+    margin: 20px auto;
+    padding: 15px;
+  }
 }
 
 h1 {

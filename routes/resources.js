@@ -43,15 +43,19 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const resourceId = req.params.id;
 
-  // Gets Comments
-  resourceQueries.getResourceComments(resourceId)
-    .then(details => {
+  // Get Specific Resource
+  resourceQueries.getResourceById(resourceId)
+    .then(resource => {
+    // Gets Comments
+    resourceQueries.getResourceComments(resourceId)
+      .then(details => {
 
-      // Gets Ratings
-      resourceQueries.getResourceRatings(resourceId)
-        .then(ratings => {
-          res.render('resource-show', { details, resourceId, ratings, userId: req.session.user_id });
-        });
+        // Gets Ratings
+        resourceQueries.getResourceRatings(resourceId)
+          .then(ratings => {
+            res.render('resource-show', { resource, details, resourceId, ratings, userId: req.session.user_id });
+          });
+      })
     })
     .catch(err => {
       res
