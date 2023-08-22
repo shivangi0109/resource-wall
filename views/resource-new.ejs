@@ -3,55 +3,58 @@
 
 <head>
   <title>Users</title>
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/form.css" />
-
+  <link rel="stylesheet" href="/styles/add-new-resource.css" />
   <script src="/vendor/jquery-3.0.0.js"></script>
 </head>
 
 <body>
   <%- include('partials/_header.ejs') %>
-  <%- include('partials/_footer.ejs') %>
-    <main>
-      <h1>Create a new resource</h1>
-
-      <div class="form-container">
-        <form id="resourceForm" action="/api/resources" method="POST">
-          <label for="category_id">Choose a category:</label>
-          <select id="category_id" name="category_id">
-            <option value="" selected disabled hidden class="placeholder">Choose a Category</option>
-            <option value="1">Art</option>
-            <option value="2">Cooking</option>
-            <option value="3">Design</option>
-            <option value="4">Finance</option>
-            <option value="5">Gardening</option>
-            <option value="6">Health</option>
-            <option value="7">Language</option>
-            <option value="8">Marketing</option>
-            <option value="9">Music</option>
-            <option value="10">Technology</option>
-            <option value="11">Other</option>
-          </select>
-          <label for="title">Title:</label>
-          <input type="text" id="title" name="title" placeholder="Enter Resource Name" required><br>
-          <label for="description">Description:</label>
-          <input type="text" id="description" name="description" placeholder="Enter Resource Description" required><br>
-          <label for="resource_url">URL:</label>
-          <input type="text" id="resource_url" name="resource_url" placeholder="Enter Resource URL" required><br>
-          <label for="thumbnail_url">Thumbnail Image URL:</label>
-          <input type="text" id="thumbnail_url" name="thumbnail_url" placeholder="Enter Thumbnail Image URL" required><br>
-          <button type="submit">Save</button>
-        </form>
-      </div>
-    </main>
+    <%- include('partials/_footer.ejs') %>
+      <main class="container">
+        <div class="resource-info">
+          <h1 class="title-header">Add New Resource</h1>
+          <div class="add-new-container">
+            <form id="resourceForm" action="/api/resources" method="POST">
+              <label class="resource-header" for="title">Title:</label>
+              <input class="resource-field" type="text" id="title" name="title" placeholder="Resource Name"
+                required><br>
+              <label class="resource-header" for="description">Description:</label>
+              <input class="resource-field" type="text" id="description" name="description"
+                placeholder="Resource Description" required><br>
+              <label class="resource-header" for="resource_url">URL:</label>
+              <input class="resource-field" type="text" id="resource_url" name="resource_url" placeholder="Resource URL"
+                required><br>
+              <label class="resource-header" for="thumbnail_url">Image URL:</label>
+              <input class="resource-field" type="text" id="thumbnail_url" name="thumbnail_url" placeholder="Image URL"
+                required><br>
+              <label class="resource-header" for="category_id">Choose a Category:</label>
+              <select id="category_id" name="category_id">
+                <option value="" selected disabled hidden class="placeholder">Choose a Category</option>
+                <option value="1">Art</option>
+                <option value="2">Cooking</option>
+                <option value="3">Design</option>
+                <option value="4">Finance</option>
+                <option value="5">Gardening</option>
+                <option value="6">Health</option>
+                <option value="7">Language</option>
+                <option value="8">Marketing</option>
+                <option value="9">Music</option>
+                <option value="10">Technology</option>
+                <option value="11">Other</option>
+              </select>
+              <div class="button-area"><button class="add-new-resource-button" type="submit">Submit</button></div>
+            </form>
+          </div>
+        </div>
+      </main>
 </body>
 
 </html>

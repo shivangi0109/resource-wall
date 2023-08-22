@@ -1,0 +1,75 @@
+@use 'variables' as v;
+
+.title-header {
+  color: v.$dark-blue;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.container {
+  align-items: center;
+  background-color: v.$body-background;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin-top: 150px;
+  text-align: left;
+}
+
+.add-new-resource {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 0;
+}
+
+.add-new-container {
+  background-color: v.$body-background;
+  margin: 0;
+  width: 600px;
+}
+
+.resource-header {
+  color: v.$dark-blue;
+  font-size: 18px;
+  margin: 0;
+  padding: 0px 50px 5px 5px;
+}
+
+.resource-info {
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.resource-field {
+  color: v.$dark-blue;
+  margin: 0;
+  padding: 5px;
+}
+
+.button-area {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+form select {
+  border: 0;
+  padding: 5px;
+  color: v.$nav-font;
+}
+
+.add-new-resource-button {
+  background-color: v.$nav-font;
+  border-radius: 25px;
+  border: none;
+  color: v.$white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition: v.$body-background 0.3s;
+
+  &:hover {
+    background-color: v.$dark-blue;
+  }
+}
