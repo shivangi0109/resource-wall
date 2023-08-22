@@ -41,19 +41,41 @@ nav {
   color: v.$dark-blue;
 }
 
+.search-form {
+  display: flex;
+  height: 35px;
+}
+
 .search-form > input {
+  color: v.$dark-blue;
+  font-weight: 600;
+  background-color: v.$link-hover;
+  padding: 0px 15px;
   height: 30px;
+  border-style: none;
+  border-radius: 25px 0px 0px 25px;
+  height: 100%;
+  outline: none;
 }
 
-.icon-container input {
-  width: 100%;
-  padding-left: 20px;
-  height: 30px;
+.search-form > input:autofill, .search-form > input:-webkit-autofill {
+  background-color: v.$link-hover;
 }
 
-.search-icon {
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  color: rgb(124, 124, 124);
+#nav-button {
+  border-style: none;
+  border-radius: 0px 25px 25px 0px;
+  color: v.$white;
+  background-color: v.$nav-font;
+  padding: 0px 20px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-button:hover {
+  cursor: pointer;
+  background-color: v.$dark-blue;
+
 }
