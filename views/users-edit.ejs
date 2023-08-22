@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <title>Users</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/form.css" />
-
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/resources.js"></script>
-</head>
-
-<body>
-  <%- include('partials/_header.ejs') %>
+  <head>
+    <title>Users</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
+    <link rel="stylesheet" href="/styles/user-edit-profile.css" />
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/resources.js"></script>
+  </head>
+  <body>
+    <%- include('partials/_header.ejs') %>
     <%- include('partials/_footer.ejs') %>
-      <main>
-        <h1>Edit Profile</h1>
+    <main class="container">
+      <div class="profile-info">
+      <h1 class="title-header">Edit Profile</h1>
 
-
-        <div class="form-container">
-          <form id="userEditForm" action="/api/users" method="POST">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Your Name" required><br>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Your Username" required><br>
-            <label for="profile_image_url">Profile Image URL:</label>
-            <input type="text" id="profile_image_url" name="profile_image_url" placeholder="Your Profile Image Url" required><br>
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name" placeholder="Your First Name" required><br>
-            <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name" placeholder="Your Last Name" required><br>
-            <label for="bio">Bio:</label>
-            <input type="text" id="bio" name="bio" placeholder="Your Biography" ><br>
-            <button type="submit">Save</button>
-          </form>
-        </div>
-      </main>
-</body>
-
+        <form id="userEditForm" action="/api/users" method="POST">
+          <label class="profile-header" for="username">Username:</label>
+          <input class="profile-field" type="text" id="username" name="username" placeholder="Your Username"
+            required><br>
+          <label class="profile-header" for="email">Email:</label>
+          <input class="profile-field" type="email" id="email" name="email" placeholder="Your Email" required><br>
+          <label class="profile-header" for="profile_image_url">Profile Image URL:</label>
+          <input class="profile-field" type="text" id="profile_image_url" name="profile_image_url"
+            placeholder="Your Profile Image Url" required><br>
+          <label class="profile-header" for="first_name">First Name:</label>
+          <input class="profile-field" type="text" id="first_name" name="first_name" placeholder="Your First Name"
+            required><br>
+          <label class="profile-header" for="last_name">Last Name:</label>
+          <input class="profile-field" type="text" id="last_name" name="last_name" placeholder="Your Last Name"
+            required><br>
+          <label class="profile-header" for="bio">About Me:</label>
+          <input class="profile-field" type="text" id="bio" name="bio" placeholder="Your Biography"><br>
+          <div class="button-area"><button class="edit-profile-button" type="submit">Update Profile</button></div>
+        </form>
+      </div>
+    </main>
+  </body>
 </html>
