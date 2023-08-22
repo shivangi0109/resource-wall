@@ -8,6 +8,13 @@ const getResources = () => {
     });
 };
 
+const getResourceById = (id) => {
+  return db.query('SELECT * FROM resources WHERE id = $1;', [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
 const getResourceComments = (resourceId) => {
   const resource = db.query(`SELECT resources.*, comments.*
   FROM resources
@@ -54,4 +61,4 @@ const searchResource = (searchText) => {
 };
 
 
-module.exports = { getResources, getResourceComments, getResourceRatings, addResource, searchResource };
+module.exports = { getResources, getResourceById, getResourceComments, getResourceRatings, addResource, searchResource };
