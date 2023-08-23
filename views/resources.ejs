@@ -28,7 +28,6 @@
     <h1 class="title-header">Resources</h1>
     <section class="resources-main">
       <% resources.forEach(resource => { %>
-        <% console.log(resource); %>
         <% const matchingCategory = categories.find(category => category.id === resource.id); %>
         <% const matchingAvgRating = avgRatings.find(avgRating => avgRating.id === resource.id); %>
         <a href="/resources/<%= resource.id %>">
