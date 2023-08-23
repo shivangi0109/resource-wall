@@ -22,12 +22,13 @@
 .resource-card {
   position: relative;
   margin: 10px;
-  padding: 15px;
+  padding: 15px 15px 10px 15px;
   background-color: v.$white;
   transition: 0.5s;
   border-radius: 10px;
   overflow: hidden;
   height: 300px;
+  text-align: center;
 }
 
 .resource-card:hover {
@@ -69,6 +70,7 @@
   background-color: v.$nav-font;
   text-align: center;
   padding: 8px 0px;
+  margin-bottom: 5px;
 }
 
 .avg-rating {

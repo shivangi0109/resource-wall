@@ -26,7 +26,6 @@
     <%- include('partials/_footer.ejs') %>
       <main>
         <h1 class="title-header">Resources</h1>
-        <img src="../5 stars.png" />
         <section class="resources-main">
           <% resources.forEach(resource=> { %>
             <% console.log(resource); %>
@@ -44,12 +43,22 @@
                         <%= matchingCategory.topic %>
                       </div>
                       <% if (matchingAvgRating) { %>
-                        <div class="avg-rating">Average Rating: <%= matchingAvgRating.avg_rating %>
+                        <!-- <div class="avg-rating">Average Rating: <%= matchingAvgRating.avg_rating %></div> -->
 
-                        </div>
-                        <% } else { %>
-                          <div class="avg-rating">No Ratings Yet</div>
-                          <% } %>
+                        <% if (matchingAvgRating.avg_rating==='5' ) { %>
+                          <img src="/docs/5 stars.svg" />
+                          <% } else if (matchingAvgRating.avg_rating==='4' ) { %>
+                            <img src="/docs/4 stars.svg" />
+                            <% } else if (matchingAvgRating.avg_rating==='3' ) { %>
+                              <img src="/docs/3 stars.svg" />
+                              <% } else if (matchingAvgRating.avg_rating==='2' ) { %>
+                                <img src="/docs/2 stars.svg" />
+                                <% } else if (matchingAvgRating.avg_rating==='1' ) { %>
+                                  <img src="/docs/1 star.svg" />
+
+                                  <% } } else { %>
+                                    <div class="avg-rating">No Ratings Yet</div>
+                                    <% } %>
 
                     </div>
                   </a>
