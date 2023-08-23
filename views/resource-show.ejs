@@ -81,11 +81,15 @@
         <p id="ratings">Your rating is <strong><%= ratings[ratings.length - 1].rating %></strong> for <strong><%= resource[0].title %></strong></p>
         <ul class="comments-container">
           <% details.forEach(detail => { %>
-            <li class="comment-container">
-              <img src="<%= user[0].profile_image_url %>" class="user-image" alt="User Image">
-              <p><%= detail.comment %></p>
-            </li>
-            <p class="comment-date" data-created-at="<%= detail.created_at %>"></p>
+            <% if (detail.comment) { %>
+              <li class="comment-container">
+                <img src="<%= user[0].profile_image_url %>" class="user-image" alt="User Image">
+                <p><%= detail.comment %></p>
+              </li>
+              <p class="comment-date" data-created-at="<%= detail.created_at %>"></p>
+            <% } else { %>
+              <li>No comments Yet, create a new comment.</li>
+            <% } %>
           <% }); %>
         </ul>
       </div>
