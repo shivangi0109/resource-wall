@@ -59,15 +59,35 @@ form select {
   color: v.$nav-font;
 }
 
+// Pill-shaped button
+// .add-new-resource-button {
+//   background-color: v.$nav-font;
+//   border-radius: 25px;
+//   border: none;
+//   color: v.$white;
+//   cursor: pointer;
+//   font-size: 16px;
+//   padding: 5px 10px;
+//   transition: v.$body-background 0.3s;
+
+//   &:hover {
+//     background-color: v.$dark-blue;
+//   }
+// }
+
+// Square button
 .add-new-resource-button {
+  display: inline-block;
   background-color: v.$nav-font;
-  border-radius: 25px;
+  color: white;
   border: none;
-  color: v.$white;
-  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
   font-size: 16px;
-  padding: 5px 10px;
-  transition: v.$body-background 0.3s;
+  border-radius: 5px;
+  cursor: pointer;
+
 
   &:hover {
     background-color: v.$dark-blue;
