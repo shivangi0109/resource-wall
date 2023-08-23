@@ -63,7 +63,11 @@ router.get('/:id/my-resources', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   const userId = req.params.id;
 
-  res.render('users-edit', { userId: req.session.user_id });
+  userQueries.getUserById(userId)
+    .then(user => {
+      console.log(user);
+    res.render('users-edit', { user, userId: req.session.user_id });
+    })
 });
 
 module.exports = router;

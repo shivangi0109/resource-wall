@@ -83,7 +83,7 @@
           <% details.forEach(detail => { %>
             <% if (detail.comment) { %>
               <li class="comment-container">
-                <img src="<%= user[0].profile_image_url %>" class="user-image" alt="User Image">
+                <img src="<%= user.profile_image_url %>" class="user-image" alt="User Image">
                 <p><%= detail.comment %></p>
               </li>
               <p class="comment-date" data-created-at="<%= detail.created_at %>"></p>
