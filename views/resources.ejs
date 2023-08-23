@@ -23,33 +23,47 @@
 
 <body>
   <%- include('partials/_header.ejs') %>
-  <%- include('partials/_footer.ejs') %>
-  <main>
-    <h1 class="title-header">Resources</h1>
-    <section class="resources-main">
-      <% resources.forEach(resource => { %>
-        <% const matchingCategory = categories.find(category => category.id === resource.id); %>
-        <% const matchingAvgRating = avgRatings.find(avgRating => avgRating.id === resource.id); %>
-        <a href="/resources/<%= resource.id %>">
-          <div class="resource-card">
-            <div class="card-content">
-              <div class="resource-card-title">
-                <%= resource.title %>
+    <%- include('partials/_footer.ejs') %>
+      <main>
+        <h1 class="title-header">Resources</h1>
+        <section class="resources-main">
+          <% resources.forEach(resource=> { %>
+              <% const matchingCategory=categories.find(category=> category.id === resource.id); %>
+                <% const matchingAvgRating=avgRatings.find(avgRating=> avgRating.id === resource.id); %>
+                  <a href="/resources/<%= resource.id %>" class="resource-card-link">
+                    <div class="resource-card">
+                      <div class="card-content">
+                        <div class="resource-card-title">
+                          <%= resource.title %>
+                        </div>
+                        <img src="<%= resource.thumbnail_url %>" alt="thumbnail image" class="thumbnail_img" />
+                      </div>
+                      <div class="category">
+                        <%= matchingCategory.topic %>
+                      </div>
+                      <% if (matchingAvgRating) { %>
+                        <!-- <div class="avg-rating">Average Rating: <%= matchingAvgRating.avg_rating %></div> -->
 
-              </div>
-              <img src="<%= resource.thumbnail_url %>" alt="thumbnail image" class="thumbnail_img" />
-              <span class="category"><%= matchingCategory.topic %></span><br/>
-              <% if (matchingAvgRating) { %>
-                <span class="avg-rating">Average Rating: <%= matchingAvgRating.avg_rating %></span>
-              <% } else { %>
-                <span class="avg-rating">No Ratings Yet</span>
-              <% } %>
-            </div>
-          </div>
-        </a>
-      <% }); %>
-    </section>
-  </main>
+                        <% if (matchingAvgRating.avg_rating==='5' ) { %>
+                          <img src="/docs/5 stars.svg" />
+                          <% } else if (matchingAvgRating.avg_rating==='4' ) { %>
+                            <img src="/docs/4 stars.svg" />
+                            <% } else if (matchingAvgRating.avg_rating==='3' ) { %>
+                              <img src="/docs/3 stars.svg" />
+                              <% } else if (matchingAvgRating.avg_rating==='2' ) { %>
+                                <img src="/docs/2 stars.svg" />
+                                <% } else if (matchingAvgRating.avg_rating==='1' ) { %>
+                                  <img src="/docs/1 star.svg" />
+
+                                  <% } } else { %>
+                                    <div class="avg-rating">No Ratings Yet</div>
+                                    <% } %>
+
+                    </div>
+                  </a>
+                  <% }); %>
+        </section>
+      </main>
 </body>
 
 </html>
