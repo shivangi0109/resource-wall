@@ -72,7 +72,7 @@
           </form>
 
           <form id="likeForm" action="/api/likes?resourceId=<%= resourceId %>" method="POST">
-            <button type="submit" class="heart-button" id="heartButton">
+            <button type="submit" class="heart-button <%= likedByCurrentUser ? 'clicked' : '' %>" id="heartButton">
               <i class="fas fa-heart"></i>
             </button>
           </form>

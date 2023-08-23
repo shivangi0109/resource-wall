@@ -4,7 +4,6 @@ $(document).ready(function() {
   // Get the average rating from the data attribute
   const averageRating = parseFloat($('.average-rating').data('rating'));
   const starContainer = $('.star-container');
-  console.log(starContainer);
 
   // Clear any existing stars
   starContainer.empty();

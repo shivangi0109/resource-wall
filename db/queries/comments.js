@@ -7,7 +7,6 @@ const addComment = (commentDetails) => {
   return db.query('INSERT INTO comments (user_id, resource_id, comment) VALUES ($1, $2, $3) RETURNING *;',
     [user_id, resource_id, comment])
     .then(data => {
-      console.log("Data", data);
       return data.rows[0];
     });
 };

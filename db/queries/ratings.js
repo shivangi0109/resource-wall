@@ -6,7 +6,6 @@ const addRating = (ratingDetails) => {
   return db.query('INSERT INTO ratings (user_id, resource_id, rating) VALUES ($1, $2, $3) RETURNING *;',
     [user_id, resource_id, rating])
     .then(data => {
-      console.log("Data", data);
       return data.rows[0];
     });
 };
