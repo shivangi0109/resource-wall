@@ -8,6 +8,7 @@
 const express = require('express');
 const router = express.Router();
 const resourceQueries = require('../db/queries/resources');
+const userQueries = require('../db/queries/users');
 
 // New Resource Page
 router.get('/new', (req, res) => {
@@ -26,7 +27,7 @@ router.get('/', (req, res) => {
       .then(categories => {
 
         // Get Average Rating
-        resourceQueries.getResourceAverageRating()
+        resourceQueries.getResourceAverageRatings()
           .then(avgRatings => {
           res.render('resources', { resources, categories, avgRatings, userId: req.session.user_id });
         });
@@ -42,20 +43,38 @@ router.get('/', (req, res) => {
 // Show one specific resource
 router.get('/:id', (req, res) => {
   const resourceId = req.params.id;
+  const userId = req.session.user_id;
 
   // Get Specific Resource
   resourceQueries.getResourceById(resourceId)
     .then(resource => {
-    // Gets Comments
-    resourceQueries.getResourceComments(resourceId)
-      .then(details => {
 
-        // Gets Ratings
-        resourceQueries.getResourceRatings(resourceId)
-          .then(ratings => {
-            res.render('resource-show', { resource, details, resourceId, ratings, userId: req.session.user_id });
+      // Gets Category
+      resourceQueries.getResourceCategory(resourceId)
+        .then(category => {
+
+          // Gets Average Rating
+          resourceQueries.getResourceAvgRating(resourceId)
+            .then(avgRating => {
+
+              // Gets Comments
+              resourceQueries.getResourceComments(resourceId)
+                .then(details => {
+
+                  // Gets Ratings
+                  resourceQueries.getResourceRatings(resourceId)
+                    .then(ratings => {
+
+                      // Get User
+                      userQueries.getUserById(userId)
+                        .then(user => {
+                          console.log(user);
+                        res.render('resource-show', { resource, category, avgRating, details, resourceId, ratings, user, userId: req.session.user_id });
+                      });
+                  });
+              });
           });
-      })
+      });
     })
     .catch(err => {
       res

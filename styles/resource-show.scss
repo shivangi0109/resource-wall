@@ -103,6 +103,38 @@
       justify-content: space-between;
 
       #ratingForm {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .rating {
+          direction: ltr;
+          unicode-bidi: bidi-override;
+          text-align: center;
+          margin-top: 10px;
+          margin-right: 20px;
+        }
+
+        .rating input {
+          display: none;
+        }
+
+        .rating label {
+          display: inline-block;
+          padding: 5px;
+          font-size: 20px;
+          color: gray;
+          cursor: pointer;
+        }
+
+        .rating label::before {
+          content: "\2605"; /* Unicode character for a star */
+        }
+
+        .rating input:checked + label {
+          color: gold;
+        }
+
         button {
           display: inline-block;
           background-color: v.$nav-font;
@@ -113,6 +145,7 @@
           text-decoration: none;
           font-size: 16px;
           border-radius: 5px;
+          // height: 60px;
           cursor: pointer;
         }
 
@@ -154,33 +187,33 @@
       padding: 0;
       margin-top: 50px;
 
-      // .comments {
-      //   display: flex;
-      //   flex-direction: row;
+      .comment-container {
+        display: flex;
+        align-items: center;
+        border: 1px solid black;
+        background-color: #ffffff;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-        // img {
-        //   width: 50px;
-        //   height: 50px;
-        //   border-radius: 50%;
-        //   margin-right: 10px;
-        // }
-
-        li {
-          border:1px solid black;
-          width: 100%;
+        .user-image {
+          width: 40px;
           height: 40px;
-          background-color: #ffffff;
-          border-radius: 5px;
-          padding: 10px;
-          margin-bottom: 10px;
+          border-radius: 50%;
           margin-right: 10px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-          &:last-child {
-            margin-bottom: 0;
-          }
         }
-      // }
+
+        p {
+          flex: 1;
+          margin: 0;
+        }
+      }
+
+      .comment-date {
+        color: gray;
+        margin-top: -10px;
+      }
     }
 
     ul.ratings {

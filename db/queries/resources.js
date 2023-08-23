@@ -15,6 +15,20 @@ const getResourceById = (id) => {
     });
 };
 
+const getResourceCategory = (id) => {
+  return db.query('SELECT categories.topic, resources.* FROM categories JOIN resources ON categories.id = resources.category_id WHERE resources.id = $1;', [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const getResourceAvgRating = (id) => {
+  return db.query('SELECT resources.*, FLOOR(AVG(ratings.rating)) as avg_rating FROM resources JOIN ratings ON resources.id = ratings.resource_id WHERE resources.id = $1 GROUP by resources.id', [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
 const getResourceCategories = () => {
   const resource = db.query(`SELECT categories.topic, resources.* FROM categories JOIN resources ON categories.id = resources.category_id;`);
   return resource
@@ -23,7 +37,7 @@ const getResourceCategories = () => {
     });
 };
 
-const getResourceAverageRating = () => {
+const getResourceAverageRatings = () => {
   const resource = db.query(`SELECT resources.*, FLOOR(AVG(ratings.rating)) as avg_rating FROM resources JOIN ratings ON resources.id = ratings.resource_id GROUP by resources.id;`);
   return resource
     .then(data => {
@@ -75,4 +89,4 @@ const searchResource = (searchText) => {
     });
 };
 
-module.exports = { getResources, getResourceById, getResourceCategories, getResourceAverageRating, getResourceComments, getResourceRatings, addResource, searchResource };
+module.exports = { getResources, getResourceById, getResourceCategory, getResourceAvgRating, getResourceCategories, getResourceAverageRatings, getResourceComments, getResourceRatings, addResource, searchResource };

@@ -34,8 +34,8 @@
           <p id="formattedDate"><%= resource[0].created_on %></p>
         </div>
         <div class="rating-category">
-          <p>Average Ratings: </p>
-          <p>Category: </p>
+          <p>Average Rating: <%= avgRating[0].avg_rating %></p>
+          <p>Category: <%= category[0].topic %></p>
         </div>
       </div>
       <div class="right-section">
@@ -47,12 +47,13 @@
 
         <div class="rating-like-form">
           <form id="ratingForm" action="/api/ratings?resourceId=<%= resourceId %>" method="POST">
-            <label for="rating">Rating:</label>
-            <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-            <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-            <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-            <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-            <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+            <fieldset class="rating">
+              <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+              <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+              <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+              <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+              <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+            </fieldset>
             <button type="submit">Add Rating</button>
           </form>
 
@@ -65,23 +66,14 @@
 
         <p id="ratings">Your rating is <strong><%= ratings[ratings.length - 1].rating %></strong> for <strong><%= resource[0].title %></strong></p>
         <ul class="comments-container">
-          <img src="<%= resource[0].thumbnail_url %>" style="width: 30px; height: 30px;" alt="User Image">
-          <!-- <div class="comments"> -->
-            <% details.forEach(detail=> { %>
-              <li>
-                <%= detail.comment %>
-              </li>
-            <% }); %>
-          <!-- </div> -->
-        </ul>
-
-        <!-- <ul class="ratings">
-          <% ratings.forEach(rating=> { %>
-            <li>
-              <%= rating.rating %>
+          <% details.forEach(detail => { %>
+            <li class="comment-container">
+              <img src="<%= user[0].profile_image_url %>" class="user-image" alt="User Image">
+              <p><%= detail.comment %></p>
             </li>
+            <p class="comment-date" data-created-at="<%= detail.created_at %>"></p>
           <% }); %>
-        </ul> -->
+        </ul>
       </div>
     </main>
 </body>
