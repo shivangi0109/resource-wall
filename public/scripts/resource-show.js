@@ -16,8 +16,7 @@ $(document).ready(function() {
   });
 
   // Add click event to the heart button
-  $("#heartButton").on('click', function(event) {
-    event.preventDefault();
+  $("#heartButton").on('click', function() {
     $(this).addClass("clicked"); // Toggle the "clicked" class
   });
 });

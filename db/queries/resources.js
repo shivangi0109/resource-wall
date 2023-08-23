@@ -87,4 +87,15 @@ const searchResource = (searchText) => {
     });
 };
 
-module.exports = { getResources, getResourceById, getResourceCategory, getResourceAvgRating, getResourceCategories, getResourceAverageRatings, getResourceComments, getResourceRatings, addResource, searchResource };
+const checkIfResourceIsLikedByUser = (userId, resourceId) => {
+  return db.query(`
+  SELECT EXISTS (
+    SELECT 1 FROM likes
+    WHERE user_id = $1 AND resource_id = $2
+  );`, [userId, resourceId])
+    .then(data => {
+      return data.rows[0].exists;
+    });
+};
+
+module.exports = { getResources, getResourceById, getResourceCategory, getResourceAvgRating, getResourceCategories, getResourceAverageRatings, getResourceComments, getResourceRatings, addResource, searchResource, checkIfResourceIsLikedByUser };
