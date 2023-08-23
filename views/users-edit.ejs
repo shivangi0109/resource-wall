@@ -22,21 +22,17 @@
       <h1 class="title-header">Edit Profile</h1>
         <form id="userEditForm" action="/api/users" method="POST">
           <label class="profile-header" for="username">Username:</label>
-          <input class="profile-field" type="text" id="username" name="username" placeholder="Your Username"
-            required><br>
+          <input class="profile-field" type="text" id="username" name="username" value="<%= user.username %>"required><br>
           <label class="profile-header" for="email">Email:</label>
-          <input class="profile-field" type="email" id="email" name="email" placeholder="Your Email" required><br>
+          <input class="profile-field" type="email" id="email" name="email" value="<%= user.email %>" required><br>
           <label class="profile-header" for="profile_image_url">Profile Image URL:</label>
-          <input class="profile-field" type="text" id="profile_image_url" name="profile_image_url"
-            placeholder="Your Profile Image URL" required><br>
+          <input class="profile-field" type="text" id="profile_image_url" name="profile_image_url" value="<%= user.profile_image_url %>" required><br>
           <label class="profile-header" for="first_name">First Name:</label>
-          <input class="profile-field" type="text" id="first_name" name="first_name" placeholder="Your First Name"
-            required><br>
+          <input class="profile-field" type="text" id="first_name" name="first_name" value="<%= user.first_name %>" required><br>
           <label class="profile-header" for="last_name">Last Name:</label>
-          <input class="profile-field" type="text" id="last_name" name="last_name" placeholder="Your Last Name"
-            required><br>
+          <input class="profile-field" type="text" id="last_name" name="last_name" value="<%= user.last_name %>" required><br>
           <label class="profile-header" for="bio">About Me:</label>
-          <input class="profile-field" type="text" id="bio" name="bio" placeholder="Your Biography"><br>
+          <input class="profile-field" type="text" id="bio" name="bio" value="<%= user.bio %>"><br>
           <div class="button-area"><button class="edit-profile-button" type="submit">Update Profile</button></div>
         </form>
       </div>
