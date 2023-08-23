@@ -15,6 +15,10 @@
   width: 100%;
 }
 
+.resource-card-link {
+  text-decoration: none;
+}
+
 .resource-card {
   position: relative;
   margin: 10px;
@@ -23,6 +27,7 @@
   transition: 0.5s;
   border-radius: 10px;
   overflow: hidden;
+  height: 300px;
 }
 
 .resource-card:hover {
@@ -51,13 +56,26 @@
   transform: translate(-50%, -50%);
   background-color: v.$white-opacity;
   color: v.$dark-blue;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 20px;
   text-align: center;
-  text-decoration: none;
-  padding: 5px 10px;
+  padding: 10px 10px;
   z-index: 1;
-  width: 80%;
+  width: 85%;
 }
+
+.category {
+  color: v.$white;
+  background-color: v.$nav-font;
+  text-align: center;
+  padding: 8px 0px;
+}
+
+.avg-rating {
+  text-align: center;
+}
+
+// my-resources only
 
 #my-resources, #my-favourites {
   display: flex;
@@ -74,7 +92,6 @@
   display: flex;
 }
 
-// copy to main.scss later?
 .my-resources-toggle {
   font-weight: 600;
   color: v.$dark-blue;
