@@ -68,13 +68,12 @@ router.get('/:id', (req, res) => {
                       // Get User
                       userQueries.getUserById(userId)
                         .then(user => {
-                          console.log(user);
-                        res.render('resource-show', { resource, category, avgRating, details, resourceId, ratings, user, userId: req.session.user_id });
-                      });
-                  });
-              });
-          });
-      });
+                          res.render('resource-show', { resource, category, avgRating, details, resourceId, ratings, user, userId: req.session.user_id });
+                        });
+                    });
+                });
+            });
+        });
     })
     .catch(err => {
       res
