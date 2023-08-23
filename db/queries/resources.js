@@ -73,7 +73,6 @@ const addResource = (resource) => {
   return db.query('INSERT INTO resources (user_id, title, description, category_id, resource_url, thumbnail_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;',
     [user_id, title, description, category_id, resource_url, thumbnail_url])
     .then(data => {
-      console.log("Data", data);
       return data.rows[0];
     });
 };
@@ -84,9 +83,19 @@ const searchResource = (searchText) => {
   FROM resources
   WHERE title ILIKE $1 OR description ILIKE $1;`, [`%${searchText}%`])
     .then((result) => {
-      console.log(("This is the search", result));
       return result.rows;
     });
 };
 
-module.exports = { getResources, getResourceById, getResourceCategory, getResourceAvgRating, getResourceCategories, getResourceAverageRatings, getResourceComments, getResourceRatings, addResource, searchResource };
+const checkIfResourceIsLikedByUser = (userId, resourceId) => {
+  return db.query(`
+  SELECT EXISTS (
+    SELECT 1 FROM likes
+    WHERE user_id = $1 AND resource_id = $2
+  );`, [userId, resourceId])
+    .then(data => {
+      return data.rows[0].exists;
+    });
+};
+
+module.exports = { getResources, getResourceById, getResourceCategory, getResourceAvgRating, getResourceCategories, getResourceAverageRatings, getResourceComments, getResourceRatings, addResource, searchResource, checkIfResourceIsLikedByUser };

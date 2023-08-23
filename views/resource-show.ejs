@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
@@ -17,6 +18,7 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script defer src="/scripts/resource-show.js"></script>
+  <script defer src="/scripts/ratings.js"></script>
 </head>
 
 <body>
@@ -34,8 +36,20 @@
           <p id="formattedDate"><%= resource[0].created_on %></p>
         </div>
         <div class="rating-category">
-          <p>Average Rating: <%= avgRating[0].avg_rating %></p>
-          <p>Category: <%= category[0].topic %></p>
+          <% if (avgRating && avgRating[0] && avgRating[0].avg_rating) { %>
+            <div class="average-rating" data-rating="<%= avgRating[0].avg_rating %>">
+              <div class="star-container">
+                <i class="fas fa-star <% if (avgRating[0].avg_rating >= 1) { %>active<% } %>"></i>
+                <i class="fas fa-star <% if (avgRating[0].avg_rating >= 2) { %>active<% } %>"></i>
+                <i class="fas fa-star <% if (avgRating[0].avg_rating >= 3) { %>active<% } %>"></i>
+                <i class="fas fa-star <% if (avgRating[0].avg_rating >= 4) { %>active<% } %>"></i>
+                <i class="fas fa-star <% if (avgRating[0].avg_rating === 5) { %>active<% } %>"></i>
+              </div>
+            </div>
+          <% } else { %>
+            <span class="average-rating">No Ratings Yet</span>
+          <% } %>
+          <div>Category: <%= category[0].topic %></div>
         </div>
       </div>
       <div class="right-section">
@@ -58,7 +72,7 @@
           </form>
 
           <form id="likeForm" action="/api/likes?resourceId=<%= resourceId %>" method="POST">
-            <button type="submit" class="heart-button" id="heartButton">
+            <button type="submit" class="heart-button <%= likedByCurrentUser ? 'clicked' : '' %>" id="heartButton">
               <i class="fas fa-heart"></i>
             </button>
           </form>
@@ -67,11 +81,15 @@
         <p id="ratings">Your rating is <strong><%= ratings[ratings.length - 1].rating %></strong> for <strong><%= resource[0].title %></strong></p>
         <ul class="comments-container">
           <% details.forEach(detail => { %>
-            <li class="comment-container">
-              <img src="<%= user[0].profile_image_url %>" class="user-image" alt="User Image">
-              <p><%= detail.comment %></p>
-            </li>
-            <p class="comment-date" data-created-at="<%= detail.created_at %>"></p>
+            <% if (detail.comment) { %>
+              <li class="comment-container">
+                <img src="<%= user[0].profile_image_url %>" class="user-image" alt="User Image">
+                <p><%= detail.comment %></p>
+              </li>
+              <p class="comment-date" data-created-at="<%= detail.created_at %>"></p>
+            <% } else { %>
+              <li>No comments Yet, create a new comment.</li>
+            <% } %>
           <% }); %>
         </ul>
       </div>

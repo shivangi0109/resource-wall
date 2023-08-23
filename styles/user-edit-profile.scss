@@ -46,13 +46,15 @@
 
 .edit-profile-button {
   background-color: v.$nav-font;
-  border-radius: 25px;
+  border-radius: 5px;
   border: none;
-  color: v.$white;
+  color: white;
   cursor: pointer;
+  display: inline-block;
   font-size: 16px;
-  padding: 5px 10px;
-  transition: v.$body-background 0.3s;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
 
   &:hover {
     background-color: v.$dark-blue;

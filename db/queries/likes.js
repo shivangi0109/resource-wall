@@ -6,7 +6,6 @@ const addLike = (likeDetails) => {
   return db.query('INSERT INTO likes (user_id, resource_id) VALUES ($1, $2) RETURNING *;',
     [user_id, resource_id])
     .then(data => {
-      console.log("Data", data);
       return data.rows[0];
     });
 };
