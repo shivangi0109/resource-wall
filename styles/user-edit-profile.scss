@@ -44,35 +44,17 @@
   padding-top: 10px;
 }
 
-// Pill-shaped button
-// .edit-profile-button {
-//   background-color: v.$nav-font;
-//   border-radius: 25px;
-//   border: none;
-//   color: v.$white;
-//   cursor: pointer;
-//   font-size: 16px;
-//   padding: 5px 10px;
-//   transition: v.$body-background 0.3s;
-
-//   &:hover {
-//     background-color: v.$dark-blue;
-//   }
-// }
-
-// Square button
 .edit-profile-button {
-  display: inline-block;
   background-color: v.$nav-font;
-  color: white;
+  border-radius: 5px;
   border: none;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-
 
   &:hover {
     background-color: v.$dark-blue;
