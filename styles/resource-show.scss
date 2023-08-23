@@ -103,6 +103,38 @@
       justify-content: space-between;
 
       #ratingForm {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .rating {
+          direction: ltr;
+          unicode-bidi: bidi-override;
+          text-align: center;
+          margin-top: 10px;
+          margin-right: 20px;
+        }
+
+        .rating input {
+          display: none;
+        }
+
+        .rating label {
+          display: inline-block;
+          padding: 5px;
+          font-size: 20px;
+          color: gray;
+          cursor: pointer;
+        }
+
+        .rating label::before {
+          content: "\2605"; /* Unicode character for a star */
+        }
+
+        .rating input:checked + label {
+          color: gold;
+        }
+
         button {
           display: inline-block;
           background-color: v.$nav-font;
@@ -113,6 +145,7 @@
           text-decoration: none;
           font-size: 16px;
           border-radius: 5px;
+          // height: 60px;
           cursor: pointer;
         }
 
