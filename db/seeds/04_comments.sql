@@ -8,7 +8,7 @@ VALUES
 (2, 6, 'Great site, helped me plant some bee-friendly flowers!'),
 (2, 7, 'The pool was too cold.'),
 (2, 8, 'My language skills are so much better!'),
-(3, 10, 'Technology is best when it brings people together.'),
-(3, 10, 'Technology like art is a soaring exercise of the human imagination. - Daniel Bell'),
-(3, 9, 'Where words fail, music speaks.'),
-(3, 8, 'Dont find customers for your products, find products for your customers.');
+(3, 11, 'Technology is best when it brings people together.'),
+(3, 11, 'Technology like art is a soaring exercise of the human imagination. - Daniel Bell'),
+(3, 10, 'Where words fail, music speaks.'),
+(3, 9, 'Dont find customers for your products, find products for your customers.');
