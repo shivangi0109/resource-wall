@@ -8,6 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/users');
+const resourceQueries = require('../db/queries/resources');
 
 // Simulate user login path
 router.get('/login/:id', (req, res) => {
@@ -45,11 +46,25 @@ router.get('/:id', (req, res) => {
 router.get('/:id/my-resources', (req, res) => {
   const userId = req.params.id;
 
+  // Get Users Resources
   userQueries.getUsersResources(userId)
     .then(resources => {
+
+      // Get Users Liked Resources
       userQueries.getUsersLikedResources(userId)
         .then(likedResources => {
-          res.render('my-resources', { resources, likedResources, userId: req.session.user_id });
+
+          // Get Categories
+          userQueries.getUsersResourcesCategories(userId)
+          .then(categories => {
+
+            // Get Average Rating
+            userQueries.getUsersResourcesAverageRatings(userId)
+              .then(avgRatings => {
+                console.log("Avg ratings------------------------->", avgRatings);
+              res.render('my-resources', { resources, likedResources, categories, avgRatings, userId: req.session.user_id });
+              });
+          });
         });
     })
     .catch(err => {
