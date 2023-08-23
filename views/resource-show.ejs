@@ -78,7 +78,7 @@
           </form>
         </div>
 
-        <p id="ratings">Your rating is <span class="strong"><%= ratings[ratings.length - 1].rating %></span>for <span class="strong"><%= resource[0].title %></span></p>
+        <p id="ratings">Your rating is <span class="strong"><%= ratings[ratings.length - 1].rating %></span> for <span class="strong"><%= resource[0].title %></span></p>
         <ul class="comments-container">
           <% details.forEach(detail => { %>
             <% if (detail.comment) { %>
@@ -88,7 +88,7 @@
               </li>
               <p class="comment-date" data-created-at="<%= detail.created_at %>"></p>
             <% } else { %>
-              <li>No comments Yet, create a new comment.</li>
+              <li>No Comments Yet</li>
             <% } %>
           <% }); %>
         </ul>
