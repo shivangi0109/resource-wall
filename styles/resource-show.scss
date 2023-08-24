@@ -38,6 +38,7 @@
         font-size: 16px;
         border-radius: 5px;
         cursor: pointer;
+        transition: 0.3s;
       }
 
       .visit-button a {
@@ -112,6 +113,7 @@
       font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
+      transition: 0.3s;
       }
 
       button:hover {
@@ -170,6 +172,7 @@
           border-radius: 5px;
           // height: 60px;
           cursor: pointer;
+          transition: 0.3s;
         }
 
         button:hover {
@@ -191,11 +194,11 @@
           transition: color 0.3s; /* Add a smooth transition for color change */
 
           &:hover {
-            color: red; /* Color on hover */
+            color: v.$likes-color; /* Color on hover */
           }
 
           &.clicked {
-            color: red; /* Color when clicked */
+            color: v.$likes-color; /* Color when clicked */
           }
         }
       }
