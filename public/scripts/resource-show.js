@@ -7,7 +7,7 @@ $(document).ready(function() {
   const formattedDate = moment(createdOn).startOf('hour').fromNow();
 
   // Update the content of the paragraph with the formatted date
-  $("#formattedDate").text("Created: " + formattedDate);
+  $("#formattedDate").text(formattedDate);
 
   $(".comment-date").each(function () {
     const createdAt = $(this).data("created-at");
