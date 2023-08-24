@@ -57,6 +57,31 @@ const getUsersResourcesAverageRatings = (id) => {
     });
 };
 
+const getUsersLikedResourcesCategories = (id) => {
+  return db.query(`SELECT resources.*, categories.topic AS category_topic
+  FROM categories
+  JOIN resources ON resources.category_id = categories.id
+  JOIN likes ON resources.id = likes.resource_id
+  WHERE likes.user_id = $1;
+  `, [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const getUsersLikedResourcesAverageRatings = (id) => {
+  return db.query(`SELECT resources.*, FLOOR(AVG(ratings.rating)) as avg_rating
+  FROM ratings
+  JOIN resources ON resources.id = ratings.resource_id
+  JOIN likes ON resources.id = likes.resource_id
+  WHERE likes.user_id = $1
+  GROUP by resources.id;
+  `, [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
 const editUserProfile = (profileDetails) => {
   const { user_id, email, username, profile_image_url, first_name, last_name, bio } = profileDetails;
 
@@ -66,4 +91,4 @@ const editUserProfile = (profileDetails) => {
     });
 };
 
-module.exports = { getUsers, getUserById, getUsersResources, getUsersLikedResources, getUsersResourcesCategories, getUsersResourcesAverageRatings, editUserProfile };
+module.exports = { getUsers, getUserById, getUsersResources, getUsersLikedResources, getUsersResourcesCategories, getUsersResourcesAverageRatings, getUsersLikedResourcesCategories, getUsersLikedResourcesAverageRatings, editUserProfile };

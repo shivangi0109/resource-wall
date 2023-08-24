@@ -61,8 +61,19 @@ router.get('/:id/my-resources', (req, res) => {
             // Get Average Rating
             userQueries.getUsersResourcesAverageRatings(userId)
               .then(avgRatings => {
-                console.log("Avg ratings------------------------->", avgRatings);
-              res.render('my-resources', { resources, likedResources, categories, avgRatings, userId: req.session.user_id });
+
+                // Get Liked Resources Categories
+                userQueries.getUsersLikedResourcesCategories(userId)
+                  .then(likedResourcesCategories => {
+
+                    // Get Liked Resources Average Rating
+                  userQueries.getUsersLikedResourcesAverageRatings(userId)
+                    .then(LikedResourcesAvgRatings => {
+
+                      console.log("Liked Resourcs Categories ------------------------->", likedResourcesCategories);
+                      res.render('my-resources', { resources, likedResources, categories, avgRatings, likedResourcesCategories, LikedResourcesAvgRatings, userId: req.session.user_id });
+                      });
+                  });
               });
           });
         });
