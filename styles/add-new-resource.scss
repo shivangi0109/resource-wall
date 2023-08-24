@@ -8,7 +8,6 @@
 
 .container {
   align-items: center;
-  background-color: v.$body-background;
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -23,7 +22,6 @@
 }
 
 .add-new-container {
-  background-color: v.$body-background;
   margin: 0;
   width: 600px;
 }
@@ -32,7 +30,7 @@
   color: v.$dark-blue;
   font-size: 18px;
   margin: 0;
-  padding: 0px 50px 5px 5px;
+  padding: 0px 0px 5px 0px;
 }
 
 .resource-info {
@@ -45,6 +43,8 @@
   color: v.$dark-blue;
   margin: 0;
   padding: 5px;
+  outline: none;
+  border-style: none;
 }
 
 .button-area {
