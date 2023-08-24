@@ -3,7 +3,22 @@ Resource Wall is a resource sharing site that allows users to save and share lea
 It has been built using CSS, JavaScript, and EJS for the frontend, and NodeJS, Express, and PostgreSQL for the backend.
 
 ## Final Product
-(Screenshots will go here)
+
+**Homepage with All Resources:**
+
+!["View of Homepage with All Resources"](/public/docs/screenshots/homepage-screenshot.jpg)
+
+**View of My Favourites:**
+
+!["View of My Favourites"](/public/docs/screenshots/my-favourites-screenshot.jpg)
+
+**Add New Resource:**
+
+!["View of Add New Resource page"](/public/docs/screenshots/add-new-resource-screenshot.jpg)
+
+**User Profile View:**
+
+!["View of User Profile page"](/public/docs/screenshots/my-profile-screenshot.jpg)
 
 ## Purpose
 This project was created, designed, and built by: 
