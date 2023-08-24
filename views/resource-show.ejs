@@ -42,9 +42,6 @@
             <button class="visit-button">
               <a target="_blank" href="<%= resource[0].resource_url %>">Click here to visit this article</a>
             </button>
-            <!-- <p id="formattedDate">
-              <%= resource[0].created_on %>
-            </p> -->
           </div>
           <div class="rating-category">
             <% if (avgRating && avgRating[0] && avgRating[0].avg_rating) { %>
@@ -60,12 +57,6 @@
               <% } else { %>
                 <span class="average-rating">No Ratings Yet</span>
                 <% } %>
-                  <!-- <div class="details-block">
-                    <p id="formattedDate">
-                      <%= resource[0].created_on %>
-                    </p>
-                    <p>Category: <%= category[0].topic %></p>
-                  </div> -->
           </div>
           <div class="details-block">
             <p class="detail-section">
