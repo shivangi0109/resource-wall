@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="/styles/resources.css" />
 
   <link
-  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-  rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/resources.js"></script>
@@ -27,32 +27,31 @@
       <main>
         <h1 class="title-header">Search Results</h1>
         <section class="resources-main">
-            <% searchResults.forEach(resource=> { %>
-              <% const matchingCategory=searchResultsCategories.find(category=> category.id === resource.id); %>
+          <% searchResults.forEach(resource=> { %>
+            <% const matchingCategory=searchResultsCategories.find(category=> category.id === resource.id); %>
               <% const matchingAvgRating=searchResultsAverageRatings.find(avgRating=> avgRating.id === resource.id); %>
-                <a href="/resources/<%= resource.id %>">
+                <a href="/resources/<%= resource.id %>" class="resource-card-link">
                   <div class="resource-card">
                     <div class="card-content">
                       <div class="resource-card-title">
                         <%= resource.title %>
                       </div>
-                      <img src="<%= resource.thumbnail_url %>" alt="thumbnail image" class="thumbnail_img"/>
+                      <img src="<%= resource.thumbnail_url %>" alt="thumbnail image" class="thumbnail_img" />
                     </div>
                     <div class="category">
                       <%= matchingCategory.category_topic %>
                     </div>
                     <% if (matchingAvgRating) { %>
-                      <!-- <div class="avg-rating">Average Rating: <%= matchingAvgRating.avg_rating %></div> -->
 
-                      <% if (matchingAvgRating.avg_rating==='5' ) { %>
+                      <% if (matchingAvgRating.avg_rating===5 ) { %>
                         <img src="/docs/5 stars.svg" />
-                        <% } else if (matchingAvgRating.avg_rating==='4' ) { %>
+                        <% } else if (matchingAvgRating.avg_rating===4 ) { %>
                           <img src="/docs/4 stars.svg" />
-                          <% } else if (matchingAvgRating.avg_rating==='3' ) { %>
+                          <% } else if (matchingAvgRating.avg_rating===3 ) { %>
                             <img src="/docs/3 stars.svg" />
-                            <% } else if (matchingAvgRating.avg_rating==='2' ) { %>
+                            <% } else if (matchingAvgRating.avg_rating===2 ) { %>
                               <img src="/docs/2 stars.svg" />
-                              <% } else if (matchingAvgRating.avg_rating==='1' ) { %>
+                              <% } else if (matchingAvgRating.avg_rating===1 ) { %>
                                 <img src="/docs/1 star.svg" />
 
                                 <% } } else { %>

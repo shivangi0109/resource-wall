@@ -70,37 +70,38 @@
           <section id="my-favourites" class="hidden">
             <% likedResources.forEach(likedResource=> { %>
               <% const matchingCategory=likedResourcesCategories.find(category=> category.id === likedResource.id); %>
-              <% const matchingAvgRating=LikedResourcesAvgRatings.find(avgRating=> avgRating.id === likedResource.id); %>
-              <a href="/resources/<%= likedResource.id %>" class="resource-card-link">
-                <div class="resource-card">
-                  <div class="card-content">
-                    <div class="resource-card-title">
-                      <%= likedResource.title %>
+                <% const matchingAvgRating=LikedResourcesAvgRatings.find(avgRating=> avgRating.id === likedResource.id);
+                  %>
+                  <a href="/resources/<%= likedResource.id %>" class="resource-card-link">
+                    <div class="resource-card">
+                      <div class="card-content">
+                        <div class="resource-card-title">
+                          <%= likedResource.title %>
+                        </div>
+                        <img src="<%= likedResource.thumbnail_url %>" alt="thumbnail image" class="thumbnail_img" />
+                      </div>
+                      <div class="category">
+                        <%= matchingCategory.category_topic %>
+                      </div>
+                      <% if (matchingAvgRating) { %>
+
+                        <% if (matchingAvgRating.avg_rating==='5' ) { %>
+                          <img src="/docs/5 stars.svg" />
+                          <% } else if (matchingAvgRating.avg_rating==='4' ) { %>
+                            <img src="/docs/4 stars.svg" />
+                            <% } else if (matchingAvgRating.avg_rating==='3' ) { %>
+                              <img src="/docs/3 stars.svg" />
+                              <% } else if (matchingAvgRating.avg_rating==='2' ) { %>
+                                <img src="/docs/2 stars.svg" />
+                                <% } else if (matchingAvgRating.avg_rating==='1' ) { %>
+                                  <img src="/docs/1 star.svg" />
+
+                                  <% } } else { %>
+                                    <div class="avg-rating">No Ratings Yet</div>
+                                    <% } %>
                     </div>
-                    <img src="<%= likedResource.thumbnail_url %>" alt="thumbnail image" class="thumbnail_img" />
-                  </div>
-                  <div class="category">
-                    <%= matchingCategory.category_topic %>
-                  </div>
-                  <% if (matchingAvgRating) { %>
-
-                    <% if (matchingAvgRating.avg_rating==='5' ) { %>
-                      <img src="/docs/5 stars.svg" />
-                      <% } else if (matchingAvgRating.avg_rating==='4' ) { %>
-                        <img src="/docs/4 stars.svg" />
-                        <% } else if (matchingAvgRating.avg_rating==='3' ) { %>
-                          <img src="/docs/3 stars.svg" />
-                          <% } else if (matchingAvgRating.avg_rating==='2' ) { %>
-                            <img src="/docs/2 stars.svg" />
-                            <% } else if (matchingAvgRating.avg_rating==='1' ) { %>
-                              <img src="/docs/1 star.svg" />
-
-                              <% } } else { %>
-                                <div class="avg-rating">No Ratings Yet</div>
-                                <% } %>
-                </div>
-              </a>
-              <% }); %>
+                  </a>
+                  <% }); %>
           </section>
       </main>
 </body>

@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="/styles/user-view-profile.css" />
 
   <link
-  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-  rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
 </head>
@@ -23,42 +23,43 @@
 <body>
   <%- include('partials/_header.ejs') %>
     <%- include('partials/_footer.ejs') %>
-    <main class="container">
-      <section class="user-profile-main">
-        <h1 class="title-header">My Profile</h1>
-        <section class="profile-details">
-          <div class="profile-photo"><img src="<%= user.profile_image_url %>" alt="profile image" /></div>
-          <div class="profile-info">
-            <h2 class="profile-header">Username:</h2>
-            <p class="profile-field">
-              <%= user.username %>
-            </p>
-            <h2 class="profile-header">
-            Email:</h3>
-            <p class="profile-field">
-              <%= user.email %>
-            </p>
-            <h2 class="profile-header">
-            First Name:</h3>
-            <p class="profile-field">
-              <%= user.first_name %>
-            </p>
-            <h2 class="profile-header">
-            Last Name:</h3>
-            <p class="profile-field">
-              <%= user.last_name %>
-            </p>
-            <h2 class="profile-header">
-            About Me:</h3>
-            <p class="profile-field">
-              <%= user.bio %>
-            </p>
+      <main class="container">
+        <section class="user-profile-main">
+          <h1 class="title-header">My Profile</h1>
+          <section class="profile-details">
+            <div class="profile-photo"><img src="<%= user.profile_image_url %>" alt="profile image" /></div>
+            <div class="profile-info">
+              <h2 class="profile-header">Username:</h2>
+              <p class="profile-field">
+                <%= user.username %>
+              </p>
+              <h2 class="profile-header">
+                Email:</h3>
+                <p class="profile-field">
+                  <%= user.email %>
+                </p>
+                <h2 class="profile-header">
+                  First Name:</h3>
+                  <p class="profile-field">
+                    <%= user.first_name %>
+                  </p>
+                  <h2 class="profile-header">
+                    Last Name:</h3>
+                    <p class="profile-field">
+                      <%= user.last_name %>
+                    </p>
+                    <h2 class="profile-header">
+                      About Me:</h3>
+                      <p class="profile-field">
+                        <%= user.bio %>
+                      </p>
+            </div>
+          </section>
+          <div class="button-area">
+            <a href="/users/<%= userId %>/edit"><button class="edit-profile-button">Edit Profile</button></a>
           </div>
         </section>
-        <div class="button-area">
-          <a href="/users/<%= userId %>/edit"><button class="edit-profile-button">Edit Profile</button></a>
-        </div>
-      </section>
-    </main>
-  </body>
+      </main>
+</body>
+
 </html>
