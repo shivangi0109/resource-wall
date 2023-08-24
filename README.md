@@ -112,8 +112,8 @@ Users can view details about a single resource, the average user rating, and any
 
 ### Set up Tables & Data
 10. From the root folder, run the `npm run db:reset` command. It runs through each database schema (table definitions) and seeds (inserts) file, in order, and executes them against the database.
-   * This command should be run each time there is a change to the database schema or seeds.
-   * **Note:** you will lose all newly created (test) data each time this is run, since the schema files will tend to DROP the tables and recreate them.
+    * This command should be run each time there is a change to the database schema or seeds.
+    * **Note:** you will lose all newly created (test) data each time this is run, since the schema files will tend to DROP the tables and recreate them.
 
 ### Start the App
 11. Ensure you are running `psql`.
