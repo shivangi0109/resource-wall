@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-  <title>Resource - <%= resource[0].title %></title>
+  <title>Resource - <%= resource[0].title %>
+  </title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,8 +17,8 @@
   <link rel="stylesheet" href="/styles/resource-show.css" />
 
   <link
-  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-  rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -28,76 +29,89 @@
 <body>
   <%- include('partials/_header.ejs') %>
     <%- include('partials/_footer.ejs') %>
-    <main class="resource-page">
-      <div class="left-section">
-        <img src="<%= resource[0].thumbnail_url %>" alt="Resource Image">
-        <h1><%= resource[0].title %></h1>
-        <p><%= resource[0].description %></p>
-        <div class="button-date">
-          <button class="visit-button">
-            <a target="_blank" href="<%= resource[0].resource_url %>">Click here to visit this article</a>
-          </button>
-          <p id="formattedDate"><%= resource[0].created_on %></p>
-        </div>
-        <div class="rating-category">
-          <% if (avgRating && avgRating[0] && avgRating[0].avg_rating) { %>
-            <div class="average-rating" data-rating="<%= avgRating[0].avg_rating %>">
-              <div class="star-container">
-                <i class="fas fa-star <% if (avgRating[0].avg_rating >= 1) { %>active<% } %>"></i>
-                <i class="fas fa-star <% if (avgRating[0].avg_rating >= 2) { %>active<% } %>"></i>
-                <i class="fas fa-star <% if (avgRating[0].avg_rating >= 3) { %>active<% } %>"></i>
-                <i class="fas fa-star <% if (avgRating[0].avg_rating >= 4) { %>active<% } %>"></i>
-                <i class="fas fa-star <% if (avgRating[0].avg_rating === 5) { %>active<% } %>"></i>
-              </div>
-            </div>
-          <% } else { %>
-            <span class="average-rating">No Ratings Yet</span>
-          <% } %>
-          <div>Category: <%= category[0].topic %></div>
-        </div>
-      </div>
-      <div class="right-section">
-        <form id="commentForm" action="/api/comments?resourceId=<%= resourceId %>" method="POST">
-          <label for="comment"></label>
-          <textarea id="comment" name="comment" placeholder="Enter your comments here..." required></textarea>
-          <button type="submit">Add Comment</button>
-        </form>
-
-        <div class="rating-like-form">
-          <form id="ratingForm" action="/api/ratings?resourceId=<%= resourceId %>" method="POST">
-            <fieldset class="rating">
-              <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-              <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-              <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-              <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-              <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-            </fieldset>
-            <button type="submit">Add Rating</button>
-          </form>
-
-          <form id="likeForm" action="/api/likes?resourceId=<%= resourceId %>" method="POST">
-            <button type="submit" class="heart-button <%= likedByCurrentUser ? 'clicked' : '' %>" id="heartButton">
-              <i class="fas fa-heart"></i>
+      <main class="resource-page">
+        <div class="left-section">
+          <img src="<%= resource[0].thumbnail_url %>" alt="Resource Image">
+          <h1>
+            <%= resource[0].title %>
+          </h1>
+          <p>
+            <%= resource[0].description %>
+          </p>
+          <div class="button-date">
+            <button class="visit-button">
+              <a target="_blank" href="<%= resource[0].resource_url %>">Click here to visit this article</a>
             </button>
-          </form>
+            <p id="formattedDate">
+              <%= resource[0].created_on %>
+            </p>
+          </div>
+          <div class="rating-category">
+            <% if (avgRating && avgRating[0] && avgRating[0].avg_rating) { %>
+              <div class="average-rating" data-rating="<%= avgRating[0].avg_rating %>">
+                <div class="star-container">
+                  <i class="fas fa-star <% if (avgRating[0].avg_rating >= 1) { %>active<% } %>"></i>
+                  <i class="fas fa-star <% if (avgRating[0].avg_rating >= 2) { %>active<% } %>"></i>
+                  <i class="fas fa-star <% if (avgRating[0].avg_rating >= 3) { %>active<% } %>"></i>
+                  <i class="fas fa-star <% if (avgRating[0].avg_rating >= 4) { %>active<% } %>"></i>
+                  <i class="fas fa-star <% if (avgRating[0].avg_rating === 5) { %>active<% } %>"></i>
+                </div>
+              </div>
+              <% } else { %>
+                <span class="average-rating">No Ratings Yet</span>
+                <% } %>
+                  <div>Category: <%= category[0].topic %>
+                  </div>
+          </div>
         </div>
+        <div class="right-section">
+          <form id="commentForm" action="/api/comments?resourceId=<%= resourceId %>" method="POST">
+            <label for="comment"></label>
+            <textarea id="comment" name="comment" placeholder="Enter your comments here..." required></textarea>
+            <button type="submit">Add Comment</button>
+          </form>
 
-        <p id="ratings">Your rating is <span class="strong"><%= ratings[ratings.length - 1].rating %></span> for <span class="strong"><%= resource[0].title %></span></p>
-        <ul class="comments-container">
-          <% details.forEach(detail => { %>
-            <% if (detail.comment) { %>
-              <li class="comment-container">
-                <img src="<%= user.profile_image_url %>" class="user-image" alt="User Image">
-                <p><%= detail.comment %></p>
-              </li>
-              <p class="comment-date" data-created-at="<%= detail.created_at %>"></p>
-            <% } else { %>
-              <li>No Comments Yet</li>
-            <% } %>
-          <% }); %>
-        </ul>
-      </div>
-    </main>
+          <div class="rating-like-form">
+            <form id="ratingForm" action="/api/ratings?resourceId=<%= resourceId %>" method="POST">
+              <fieldset class="rating">
+                <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+                <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+                <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+              </fieldset>
+              <button type="submit">Add Rating</button>
+            </form>
+
+            <form id="likeForm" action="/api/likes?resourceId=<%= resourceId %>" method="POST">
+              <button type="submit" class="heart-button <%= likedByCurrentUser ? 'clicked' : '' %>" id="heartButton">
+                <i class="fas fa-heart"></i>
+              </button>
+            </form>
+          </div>
+
+          <p id="ratings">Your rating is <span class="strong">
+              <%= ratings[ratings.length - 1].rating %>
+            </span> for <span class="strong">
+              <%= resource[0].title %>
+            </span></p>
+          <ul class="comments-container">
+            <% details.forEach(detail=> { %>
+              <% if (detail.comment) { %>
+                <li class="comment-container">
+                  <img src="<%= user.profile_image_url %>" class="user-image" alt="User Image">
+                  <p>
+                    <%= detail.comment %>
+                  </p>
+                </li>
+                <p class="comment-date" data-created-at="<%= detail.created_at %>"></p>
+                <% } else { %>
+                  <li>No Comments Yet</li>
+                  <% } %>
+                    <% }); %>
+          </ul>
+        </div>
+      </main>
 </body>
 
 </html>
