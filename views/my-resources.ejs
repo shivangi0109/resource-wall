@@ -71,7 +71,7 @@
             <% likedResources.forEach(likedResource=> { %>
               <% const matchingCategory=likedResourcesCategories.find(category=> category.id === likedResource.id); %>
               <% const matchingAvgRating=LikedResourcesAvgRatings.find(avgRating=> avgRating.id === likedResource.id); %>
-              <a href="/resources/<%= likedResource.id %>">
+              <a href="/resources/<%= likedResource.id %>" class="resource-card-link">
                 <div class="resource-card">
                   <div class="card-content">
                     <div class="resource-card-title">
@@ -83,7 +83,6 @@
                     <%= matchingCategory.category_topic %>
                   </div>
                   <% if (matchingAvgRating) { %>
-                    <!-- <div class="avg-rating">Average Rating: <%= matchingAvgRating.avg_rating %></div> -->
 
                     <% if (matchingAvgRating.avg_rating==='5' ) { %>
                       <img src="/docs/5 stars.svg" />
