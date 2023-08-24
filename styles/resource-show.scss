@@ -7,6 +7,7 @@
   justify-content: space-between;
   margin-top: 200px;
   padding: 20px;
+  gap: 20px;
 
   .left-section {
     flex: 1;
@@ -19,8 +20,9 @@
       width: 200px;
     }
 
-    .resource-description {
-      width: 90%;
+    .resource-title {
+      color: v.$dark-blue;
+      margin: 15px 0px;
     }
 
     .detail-title {
@@ -28,11 +30,31 @@
       font-weight: bold;
     }
 
+    .resource-description {
+      color: v.$dark-blue;
+      margin: 15px 0px;
+    }
+
+    .resource-category {
+      color: v.$nav-font;
+      font-weight: 600;
+      font-size: 18px;
+      margin: 0px;
+    }
+
+    .created-on {
+      color: v.$dark-blue;
+      display: flex;
+      flex-direction: row;
+      justify-self: flex-end;
+    }
+
     .button-date {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin-right: 200px;
+      align-items: flex-start;
+      padding-top: 5px;
 
       .visit-button {
         background-color: v.$nav-font;
@@ -42,7 +64,6 @@
         cursor: pointer;
         display: inline-block;
         font-size: 16px;
-        margin-top: 10px;
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
@@ -64,7 +85,7 @@
     .rating-category {
       display: flex;
       flex-direction: row;
-      padding-top: 10px;
+      padding-top: 20px;
 
       .average-rating {
         display: flex;
@@ -73,7 +94,6 @@
         .star-container {
           align-items: center;
           display: flex;
-          margin-top: 5px;
 
           .fa-star {
             color: v.$gray;
@@ -91,12 +111,11 @@
   .right-section {
     flex: 1;
     margin-right: 100px;
-    padding-left: 20px;
 
     #commentForm {
       display: flex;
       flex-direction: column;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
 
       textarea {
         background-color: inherit;
@@ -138,9 +157,16 @@
 
         .rating {
           direction: ltr;
-          margin: 10px 20px 0 0;
+          margin: 0px 20px 0px 0px;
           text-align: center;
           unicode-bidi: bidi-override;
+          border-style: none;
+          outline: none;
+          border-radius: 5px;
+        }
+
+        .rating-option {
+          text-align: left;
         }
 
         .rating input {
@@ -233,7 +259,7 @@
 
         p {
           flex: 1;
-          margin: 0;
+          margin: 0px;
         }
       }
 
