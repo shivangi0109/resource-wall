@@ -35,9 +35,9 @@
           <h1>
             <%= resource[0].title %>
           </h1>
-          <p>
-            <%= resource[0].description %>
-          </p>
+          <p class="detail-section"><span class="detail-title">Category: </span><%= category[0].topic %></p>
+          <p class="resource-description"><%= resource[0].description %></p>
+          <p class="detail-section"><span class="detail-title">Created: </span><span id="formattedDate"><%= resource[0].created_on %></span></p>
           <div class="button-date">
             <button class="visit-button">
               <a target="_blank" href="<%= resource[0].resource_url %>">Click here to visit this article</a>
@@ -57,12 +57,6 @@
               <% } else { %>
                 <span class="average-rating">No Ratings Yet</span>
                 <% } %>
-          </div>
-          <div class="details-block">
-            <p class="detail-section">
-            Created: <span id="formattedDate">
-              <%= resource[0].created_on %></span></p>
-              <p class="detail-section">Category: <%= category[0].topic %></p>
           </div>
         </div>
         <div class="right-section">

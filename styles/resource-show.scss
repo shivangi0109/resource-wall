@@ -19,6 +19,15 @@
       width: 200px;
     }
 
+    .resource-description {
+      width: 90%;
+    }
+
+    .detail-title {
+      color: v.$nav-font;
+      font-weight: bold;
+    }
+
     .button-date {
       display: flex;
       flex-direction: row;
@@ -33,6 +42,7 @@
         cursor: pointer;
         display: inline-block;
         font-size: 16px;
+        margin-top: 10px;
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
@@ -49,6 +59,7 @@
         cursor: pointer;
       }
     }
+  }
 
     .rating-category {
       display: flex;
@@ -76,12 +87,6 @@
         }
       }
     }
-
-    .details-block {
-      align-items: flex-start;
-      padding-top: 20px;
-    }
-  }
 
   .right-section {
     flex: 1;
