@@ -67,10 +67,8 @@ router.get('/:id/my-resources', (req, res) => {
                   .then(likedResourcesCategories => {
 
                     // Get Liked Resources Average Rating
-                  userQueries.getUsersLikedResourcesAverageRatings(userId)
+                    userQueries.getUsersLikedResourcesAverageRatings(userId)
                     .then(LikedResourcesAvgRatings => {
-
-                      console.log("Liked Resourcs Categories ------------------------->", likedResourcesCategories);
                       res.render('my-resources', { resources, likedResources, categories, avgRatings, likedResourcesCategories, LikedResourcesAvgRatings, userId: req.session.user_id });
                       });
                   });

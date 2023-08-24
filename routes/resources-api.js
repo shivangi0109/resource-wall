@@ -43,7 +43,16 @@ router.get('/search', (req, res) => {
   const searchText = req.query.q;
   resourceQueries.searchResource(searchText)
     .then(searchResults => {
-      res.render('resources-search', { searchResults, userId: req.session.user_id });
+
+      resourceQueries.searchResourceToDisplayCategories(searchText)
+        .then(searchResultsCategories => {
+
+          resourceQueries.searchResourceToDisplayAverageRatings(searchText)
+            .then(searchResultsAverageRatings => {
+            console.log(searchResultsAverageRatings);
+            res.render('resources-search', { searchResults, searchResultsCategories, searchResultsAverageRatings, userId: req.session.user_id });
+            });
+        });
     })
     .catch(err => {
       res

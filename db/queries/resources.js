@@ -87,6 +87,30 @@ const searchResource = (searchText) => {
     });
 };
 
+const searchResourceToDisplayCategories = (searchText) => {
+  return db.query(`
+  SELECT resources.*, categories.topic AS category_topic
+  FROM categories
+  JOIN resources ON resources.category_id = categories.id
+  WHERE title ILIKE $1 OR description ILIKE $1;
+`, [`%${searchText}%`])
+    .then((result) => {
+      return result.rows;
+    });
+};
+
+const searchResourceToDisplayAverageRatings = (searchText) => {
+  return db.query(`
+  SELECT resources.*, ratings.rating AS avg_rating
+  FROM ratings
+  JOIN resources ON resources.id = ratings.resource_id
+  WHERE title ILIKE $1 OR description ILIKE $1;
+`, [`%${searchText}%`])
+    .then((result) => {
+      return result.rows;
+    });
+};
+
 const checkIfResourceIsLikedByUser = (userId, resourceId) => {
   return db.query(`
   SELECT EXISTS (
@@ -98,4 +122,4 @@ const checkIfResourceIsLikedByUser = (userId, resourceId) => {
     });
 };
 
-module.exports = { getResources, getResourceById, getResourceCategory, getResourceAvgRating, getResourceCategories, getResourceAverageRatings, getResourceComments, getResourceRatings, addResource, searchResource, checkIfResourceIsLikedByUser };
+module.exports = { getResources, getResourceById, getResourceCategory, getResourceAvgRating, getResourceCategories, getResourceAverageRatings, getResourceComments, getResourceRatings, addResource, searchResource, searchResourceToDisplayCategories, searchResourceToDisplayAverageRatings, checkIfResourceIsLikedByUser };
