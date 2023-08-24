@@ -43,9 +43,9 @@ While working to build this project to successful completion, we:
 * Used git best practices (sans rebase) when working on a project with multiple members (branching and merging often), as well as the GitHub workflow (pull requests).
 * Used the major steps of software development to execute the project; user stories, wireframes, ERD, Routes, etc.
 * Collaborated effectively as a team to decide how to break out the work, setting up a good team structure and a pleasant and positive work dynamic.
-* Engaged in a simulated on the job environment
-* Prepared and planned how to tailor our communication and presentation approach for a technical as well as and non-technical audience
-* Presented a web development project to a technical and non-technical audience
+* Engaged in a simulated on the job environment.
+* Prepared and planned how to tailor our communication and presentation approach for a technical as well as and non-technical audience.
+* Presented a web development project to a technical and non-technical audience.
 * Had a lot of fun! 😃
 
 ## Features
@@ -54,7 +54,7 @@ While working to build this project to successful completion, we:
 Users can save external URLs along with a title, description, and image, and organize them using suggested topic categories
 
 ### 🔍 Search 
-Search feature enables users to find already-saved resources that have been created by any user.
+Search feature enables users to find already-saved resources that have been created by any user
 
 ### 🗨️ Comments 
 Users can add a comment to any resource, for others to view
