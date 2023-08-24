@@ -1,78 +1,72 @@
 @use 'variables' as v;
 
 .resource-page {
-  display: flex;
-  flex-direction:row;
-  justify-content: space-between;
   align-items: flex-start;
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 200px;
+  padding: 20px;
 
   .left-section {
     flex: 1;
-    padding-right: 20px;
     margin-left: 100px;
 
     img {
-      width: 200px;
-      height: 200px;
       border-radius: 50%;
+      height: 200px;
       margin-right: 10px;
-      margin-bottom: -15px;
+      width: 200px;
     }
 
     .button-date {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin-right:200px;
+      margin-right: 200px;
 
       .visit-button {
-        display: inline-block;
         background-color: v.$nav-font;
-        color: white;
+        border-radius: 5px;
         border: none;
+        color: v.$white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
         transition: 0.3s;
       }
 
       .visit-button a {
-        color: white;
+        color: v.$white;
         text-decoration: none;
       }
 
       .visit-button:hover {
-        cursor: pointer;
         background-color: v.$dark-blue;
-
+        cursor: pointer;
       }
     }
 
     .rating-category {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      margin-right:200px;
-      margin-top: 20px;
+      padding-top: 10px;
 
       .average-rating {
         display: flex;
-        font-size: 16px; /* Adjust the font size as needed */
-        margin-right: 10px; /* Add some spacing between text and stars */
+        font-size: 16px;
 
         .star-container {
-          display: flex;
           align-items: center;
+          display: flex;
           margin-top: 5px;
 
           .fa-star {
+            color: v.$gray;
             font-size: 20px;
-            color: gray;
             margin-right: 5px;
           }
 
@@ -82,12 +76,17 @@
         }
       }
     }
+
+    .details-block {
+      align-items: flex-start;
+      padding-top: 20px;
+    }
   }
 
   .right-section {
     flex: 1;
-    padding-left: 20px;
     margin-right: 100px;
+    padding-left: 20px;
 
     #commentForm {
       display: flex;
@@ -95,30 +94,30 @@
       margin-bottom: 15px;
 
       textarea {
-        border: none;
-        outline: none;
-        border-bottom: 3px solid dimgray;
         background-color: inherit;
+        border: none;
+        border-bottom: 3px solid dimgray;
         margin-bottom: 20px;
+        outline: none;
       }
 
       button {
-      display: inline-block;
-      background-color: v.$nav-font;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s;
+        background-color: v.$nav-font;
+        border-radius: 5px;
+        border: none;
+        color: v.$white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: 0.3s;
       }
 
       button:hover {
-        cursor: pointer;
         background-color: v.$dark-blue;
+        cursor: pointer;
       }
     }
 
@@ -134,10 +133,9 @@
 
         .rating {
           direction: ltr;
-          unicode-bidi: bidi-override;
+          margin: 10px 20px 0 0;
           text-align: center;
-          margin-top: 10px;
-          margin-right: 20px;
+          unicode-bidi: bidi-override;
         }
 
         .rating input {
@@ -145,39 +143,38 @@
         }
 
         .rating label {
-          display: inline-block;
-          padding: 5px;
-          font-size: 20px;
-          color: gray;
+          color: v.$gray;
           cursor: pointer;
+          display: inline-block;
+          font-size: 20px;
+          padding: 5px;
         }
 
         .rating label::before {
           content: "\2605"; /* Unicode character for a star */
         }
 
-        .rating input:checked + label {
+        .rating input:checked+label {
           color: gold;
         }
 
         button {
-          display: inline-block;
           background-color: v.$nav-font;
-          color: white;
+          border-radius: 5px;
           border: none;
+          color: v.$white;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 16px;
           padding: 10px 20px;
           text-align: center;
           text-decoration: none;
-          font-size: 16px;
-          border-radius: 5px;
-          // height: 60px;
-          cursor: pointer;
           transition: 0.3s;
         }
 
         button:hover {
-          cursor: pointer;
           background-color: v.$dark-blue;
+          cursor: pointer;
         }
       }
 
@@ -188,9 +185,9 @@
         .heart-button {
           background: none;
           border: none;
+          color: v.$gray; /* Initial color */
           cursor: pointer;
           font-size: 24px;
-          color: gray; /* Initial color */
           transition: color 0.3s; /* Add a smooth transition for color change */
 
           &:hover {
@@ -204,34 +201,29 @@
       }
     }
 
-    #ratings {
-      margin-top: 30px;
-    }
-
-    .strong {
+    .rating-strong {
       font-weight: bold;
     }
 
     ul.comments-container {
       list-style: none;
-      padding: 0;
       margin-top: 50px;
+      padding: 0;
 
       .comment-container {
-        display: flex;
         align-items: center;
-        border: 1px solid black;
-        background-color: #ffffff;
+        background-color: v.$white;
         border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 10px;
+        border: 1px solid v.$dark-blue;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        padding: 5px;
 
         .user-image {
-          width: 40px;
-          height: 40px;
           border-radius: 50%;
+          height: 40px;
           margin-right: 10px;
+          width: 40px;
         }
 
         p {
@@ -241,8 +233,8 @@
       }
 
       .comment-date {
-        color: gray;
-        margin-top: -10px;
+        color: v.$gray;
+        margin-top: 5px;
       }
     }
 

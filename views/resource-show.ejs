@@ -42,9 +42,9 @@
             <button class="visit-button">
               <a target="_blank" href="<%= resource[0].resource_url %>">Click here to visit this article</a>
             </button>
-            <p id="formattedDate">
+            <!-- <p id="formattedDate">
               <%= resource[0].created_on %>
-            </p>
+            </p> -->
           </div>
           <div class="rating-category">
             <% if (avgRating && avgRating[0] && avgRating[0].avg_rating) { %>
@@ -60,8 +60,18 @@
               <% } else { %>
                 <span class="average-rating">No Ratings Yet</span>
                 <% } %>
-                  <div>Category: <%= category[0].topic %>
-                  </div>
+                  <!-- <div class="details-block">
+                    <p id="formattedDate">
+                      <%= resource[0].created_on %>
+                    </p>
+                    <p>Category: <%= category[0].topic %></p>
+                  </div> -->
+          </div>
+          <div class="details-block">
+            <p class="detail-section">
+            Created: <span id="formattedDate">
+              <%= resource[0].created_on %></span></p>
+              <p class="detail-section">Category: <%= category[0].topic %></p>
           </div>
         </div>
         <div class="right-section">
@@ -90,9 +100,9 @@
             </form>
           </div>
 
-          <p id="ratings">Your rating is <span class="strong">
+          <p id="ratings">Your rating is <span class="rating-strong">
               <%= ratings[ratings.length - 1].rating %>
-            </span> for <span class="strong">
+            </span> for <span class="rating-strong">
               <%= resource[0].title %>
             </span></p>
           <ul class="comments-container">
