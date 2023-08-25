@@ -12,6 +12,10 @@ It has been built using CSS, JavaScript, and EJS for the frontend, and NodeJS, E
 
 !["View of My Favourites"](/public/docs/screenshots/my-favourites-screenshot.jpg)
 
+**View Details of Specific Resource:**
+
+!["View of My Favourites"](/public/docs/screenshots/show-single-resource-screenshot.jpg)
+
 **Add New Resource:**
 
 !["View of Add New Resource page"](/public/docs/screenshots/add-new-resource-screenshot.jpg)
