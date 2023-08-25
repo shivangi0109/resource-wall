@@ -7,7 +7,7 @@
   justify-content: space-between;
   margin-top: 200px;
   padding: 20px;
-  gap: 20px;
+  gap: 50px;
 
   .left-section {
     flex: 1;
@@ -33,6 +33,7 @@
     .resource-description {
       color: v.$dark-blue;
       margin: 15px 0px;
+      text-align: justify;
     }
 
     .resource-category {
@@ -43,10 +44,12 @@
     }
 
     .created-on {
-      color: v.$dark-blue;
+      color: dimgray;
       display: flex;
       flex-direction: row;
+      text-align: right;
       justify-self: flex-end;
+      gap: 4px;
     }
 
     .button-date {
@@ -90,6 +93,7 @@
       .average-rating {
         display: flex;
         font-size: 16px;
+        color: v.$dark-blue;
 
         .star-container {
           align-items: center;
@@ -120,6 +124,7 @@
       textarea {
         background-color: inherit;
         border: none;
+        color: v.$dark-blue;
         border-bottom: 3px solid dimgray;
         margin-bottom: 20px;
         outline: none;
@@ -145,6 +150,10 @@
       }
     }
 
+    #ratings {
+      color:v.$dark-blue;
+    }
+
     .rating-like-form {
       display: flex;
       flex-direction: row;
@@ -163,6 +172,7 @@
           border-style: none;
           outline: none;
           border-radius: 5px;
+          padding: 0px 10px;
         }
 
         .rating-option {
@@ -242,6 +252,7 @@
       padding: 0;
 
       .comment-container {
+        color: v.$dark-blue;
         align-items: center;
         background-color: v.$white;
         border-radius: 5px;
