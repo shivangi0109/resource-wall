@@ -43,15 +43,15 @@
           </p>
           <div class="button-date">
             <button class="visit-button">
-              <a target="_blank" href="<%= resource[0].resource_url %>">Click here to visit this article</a>
+              <a target="_blank" href="<%= resource[0].resource_url %>">Visit Resource</a>
             </button>
 
-            <div class="created on">
-              Created
-              <div id="formattedDate">
-                <%= resource[0].created_on %>
-              </div>
-            </div>
+            <span class="created-on">
+              <span>Created: </span>
+              <span id="formattedDate">
+                 <%= resource[0].created_on %>
+              </span>
+            </span>
 
           </div>
           <div class="rating-category">
