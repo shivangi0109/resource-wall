@@ -8,5 +8,5 @@ CREATE TABLE resources (
   description TEXT NOT NULL,
   resource_url TEXT NOT NULL,
   thumbnail_url TEXT NOT NULL,
-  created_on TIMESTAMP NOT NULL DEFAULT NOW()
+  created_on TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

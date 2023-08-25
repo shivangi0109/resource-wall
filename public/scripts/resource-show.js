@@ -2,10 +2,10 @@
 
 $(document).ready(function() {
   const createdOn = $("#formattedDate").text(); // Get the timestamp from the paragraph
-
+  console.log(createdOn);
   // Use Moment.js to format the timestamp
-  const formattedDate = moment(createdOn).startOf('hour').fromNow();
-
+  const formattedDate = moment(createdOn).fromNow();
+console.log(formattedDate);
   // Update the content of the paragraph with the formatted date
   $("#formattedDate").text(formattedDate);
 
