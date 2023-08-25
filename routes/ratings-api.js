@@ -15,6 +15,10 @@ router.post("/", (req, res) => {
   const resourceId = req.query.resourceId;
   const newRating = req.body;
 
+  if (!newRating.rating) {
+    return res.status(400).json({ error: "Please enter a rating." });
+  }
+
   newRating.user_id = userId;
   newRating.resource_id = resourceId;
 

@@ -70,7 +70,7 @@
                 <% } %>
           </div>
         </div>
-        
+
         <div class="right-section">
           <form id="commentForm" action="/api/comments?resourceId=<%= resourceId %>" method="POST">
             <label for="comment"></label>
@@ -99,6 +99,23 @@
                 <i class="fas fa-heart"></i>
               </button>
             </form>
+
+            <!-- Error handling for empty ratings -->
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                const ratingForm = document.getElementById("ratingForm");
+
+                ratingForm.addEventListener("submit", (event) => {
+                  const selectedRating = ratingForm.querySelector(".rating").value;
+
+                  if (selectedRating === "") {
+                    event.preventDefault();
+                    alert("Cannot send an empty rating. Please choose a rating between 1 - 5 stars before submitting.");
+                  }
+                });
+              });
+            </script>
+
           </div>
 
           <p id="ratings">Your rating is <span class="rating-strong">
