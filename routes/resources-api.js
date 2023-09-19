@@ -49,7 +49,7 @@ router.get('/search', (req, res) => {
 
           resourceQueries.searchResourceToDisplayAverageRatings(searchText)
             .then(searchResultsAverageRatings => {
-            console.log(searchResultsAverageRatings);
+
             res.render('resources-search', { searchResults, searchResultsCategories, searchResultsAverageRatings, userId: req.session.user_id });
             });
         });

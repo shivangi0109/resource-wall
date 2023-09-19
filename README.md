@@ -28,7 +28,7 @@ It has been built using CSS, JavaScript, and EJS for the frontend, and NodeJS, E
 This project was created, designed, and built by: 
 * [devvaru](https://github.com/Devvaru)
 * [shivangi0109](https://github.com/shivangi0109)
-* [karvok](https://github.com/karvok)  
+* [kazvee](https://github.com/kazvee)  
 
 for our Midterm Project at [Lighthouse Labs](https://www.lighthouselabs.ca/en/web-development-flex-program).
 
