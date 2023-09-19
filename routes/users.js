@@ -89,7 +89,7 @@ router.get('/:id/edit', (req, res) => {
 
   userQueries.getUserById(userId)
     .then(user => {
-      console.log(user);
+
     res.render('users-edit', { user, userId: req.session.user_id });
     })
 });
